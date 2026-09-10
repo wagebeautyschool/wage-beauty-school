@@ -169,8 +169,13 @@ shape (About / Status / Development log, newest entries first).
 **A project can also carry a set of documents.** Add a `"documents"` array;
 each entry is `{ slug, title, aspect, file, source, status, date, description }`.
 Add `"hidden": true` to a document to take it out of circulation while it is
-being revised: it drops off the project page and its direct URL reports that it
-is being revised. The `.md` file stays in the repo. Remove the flag to restore it.
+being revised: it drops off the project page, its direct URL reports that it is
+being revised, and it stops counting toward the project's document total. For a
+document that must be genuinely unreachable (GitHub Pages serves every file in
+`main`, including raw Markdown), also move its `.md` and PDF onto the `drafts`
+branch and `git rm` them from `main` — keep the hidden manifest entry with a
+`note` recording where the files went. `away-from-home-chapter-one` and
+`away-from-home-the-first-verse` are handled this way.
 The project page then shows them grouped by `aspect`, and each links to
 `entry.html?c=projects&id=<project>&doc=<doc-slug>` — a full reading page
 rendered from `file` (a path under `content/projects/`), with `source` (a PDF
