@@ -2,6 +2,38 @@
   "collection": "library",
   "entries": [
     {
+      "slug": "how-to-play-chess-with-yourself",
+      "title": "How to Play Chess with Yourself",
+      "category": "Critical Thinking",
+      "type": "Textbook",
+      "status": "Established",
+      "date": "2026-07-01",
+      "description": "The First Textbook of the School. Sixteen short chapters on noticing before naming, reading the grammar and stories underneath what we say, and treating life as a long game of chess played with yourself rather than against the world.",
+      "file": "how-to-play-chess-with-yourself.md",
+      "related": [
+        "library/how-to-play-on-the-emotional-chessboard",
+        "library/the-more-powerful-the-instrument",
+        "practice/observe-the-instrument",
+        "practice/question-the-default"
+      ]
+    },
+    {
+      "slug": "how-to-play-on-the-emotional-chessboard",
+      "title": "How to Play on the Emotional Chessboard",
+      "category": "Emotional Resilience",
+      "type": "Textbook",
+      "status": "Established",
+      "date": "2026-07-22",
+      "description": "The Second Tome, and a companion to the first. Reading the invisible boards inside every room, conversation and organisation: the emotional pieces, opening theory and endgames, political literacy, the patterns of manipulation, and harmony as the aim rather than victory.",
+      "file": "how-to-play-on-the-emotional-chessboard.md",
+      "related": [
+        "library/how-to-play-chess-with-yourself",
+        "library/the-emotional-chessboard",
+        "library/the-responsibility-to-say-something",
+        "practice/separate-signal-from-noise"
+      ]
+    },
+    {
       "slug": "the-emotional-chessboard",
       "title": "The Emotional Chessboard",
       "category": "Emotional Resilience",
@@ -11,7 +43,7 @@
       "description": "A model for staying deliberate under emotional pressure: treat feeling and position as a board you can read, rather than weather that happens to you.",
       "file": "the-emotional-chessboard.md",
       "related": [
-        "library/the-more-powerful-the-instrument",
+        "library/how-to-play-on-the-emotional-chessboard",
         "library/signal-and-noise",
         "practice/separate-signal-from-noise"
       ]

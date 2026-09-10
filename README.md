@@ -60,7 +60,8 @@ wage-beauty-school/
 └── content/
     ├── library/
     │   ├── index.json        Manifest: one block per document
-    │   └── *.md              One Markdown file per document
+    │   ├── *.md              One Markdown file per document
+    │   └── sources/          Original source files (PDF/DOCX) the Markdown was made from
     ├── practice/
     │   ├── index.json
     │   └── *.md
