@@ -40,6 +40,7 @@ wage-beauty-school/
 ├── about.html            About (static prose)
 ├── entry.html            Universal reader for one Library / Practice / Laboratory entry
 │                         (?c=<collection>&id=<slug>)
+├── play.html             Player for a played scene  (?id=<slug>)
 ├── 404.html              Not-found page (used by GitHub Pages)
 ├── favicon.svg
 ├── .nojekyll             Tells GitHub Pages to serve files as-is
@@ -54,7 +55,9 @@ wage-beauty-school/
 │   ├── pulse.js          Live counts, from the manifests — nothing invented
 │   ├── collection.js     Renders an index listing (Library / Practice / Laboratory)
 │   ├── entry.js          Renders a single entry from its Markdown file
-│   └── projects.js       Renders the Projects archive inline
+│   ├── projects.js       Renders the Projects archive inline
+│   ├── instruments.js    Renders the played-scene block on Practice
+│   └── instrument.js     The played-scene engine (runs a scenario JSON)
 │
 ├── vendor/
 │   └── marked.min.js     Markdown → HTML (marked v12.0.2, MIT, vendored — no CDN)
@@ -70,12 +73,15 @@ wage-beauty-school/
     ├── laboratory/
     │   ├── index.json
     │   └── *.md
-    └── projects/
-        ├── index.json        Manifest: one block per project
-        ├── *.md              Optional — a project's own page (e.g. a dev log)
-        └── <project>/        Optional — a project's documents + their sources
-            ├── *.md
-            └── sources/
+    ├── projects/
+    │   ├── index.json        Manifest: one block per project
+    │   ├── *.md              Optional — a project's own page (e.g. a dev log)
+    │   └── <project>/        Optional — a project's documents + their sources
+    │       ├── *.md
+    │       └── sources/
+    └── instruments/
+        ├── index.json        Manifest: one block per played scene
+        └── <slug>.json       The scenario — the whole game is this file
 ```
 
 The page header and footer are copied into each HTML file by hand. That is the
@@ -184,6 +190,42 @@ built this way: `shorigan.md` is the overview; its `Living Philosophy` documents
 live in `shorigan/` (the two tomes) and its `Living Story` documents in
 `shorigan/story/` (the fiction extracts); each folder has a `sources/` holding
 the original PDFs and that section's README.
+
+### A new played scene (an interactive)
+
+A **played scene** is a small emotional-chessboard game: you act, a four-mark
+board shifts, and the Dark Jester names it. Everything is data — the engine
+(`js/instrument.js`) just runs the JSON.
+
+1. Register it in `content/instruments/index.json` (same shape as the other
+   manifests: `slug`, `title`, `kind`, `description`, `file`, `related`).
+2. Write `content/instruments/<slug>.json`. The scene is:
+   - **`marks`** — the board. Each is `{ label, start, max }` for pips, or
+     `{ kind: "slider", min, max, poles: [left, right] }`.
+   - **`temperaments`** — four characters, one dealt at random per playthrough.
+     Each has a `name` pool, a `pull`, a `default` voice
+     (`advance` / `retreat` / `silence` / `trade`), small mark `offsets`, and a
+     `line`.
+   - **`sets`** — three acts. Each has an `intro`, `beats`, a `resolution`, and
+     a `jester` interstitial ending in a `question`.
+   - **`beats`** — a `prompt` and `options`. An option carries a `label`, an
+     `effect` (mark deltas) or an `effectIf` (`{ cond, then, else }`), a
+     `result` (base text + `add` flavour), and optionally a `voice`. Playing
+     *against* your temperament's voice costs 1 Positioning. An option with
+     `"kind": "persona"` and `"to": "<temperament>"` is the mid-game change:
+     you start moving differently, which itself costs once.
+   - **`endings`** — checked in order; first whose `when` condition passes wins,
+     last is the `fallback`.
+   - **`passages`** — links out, plus `{ "action": "replay" }`.
+3. Any text node (`intro`, `result`, `resolution`, `jester`, `ending`) can carry
+   an `add` map of `condition → sentence`. Conditions: `temperament:x`,
+   `persona:x`, `chose:optionId`, `mark:trust<=2`, `count:advance>=2`,
+   `changed-persona`, `against-type`, and `not-` on any of them. Space-separate
+   for AND. This is how one spine reads differently every time without
+   branching.
+
+The scene shows up on Practice with the instrument sigil; there is no sixth
+room. `play.html?id=<slug>` is the player.
 
 ---
 

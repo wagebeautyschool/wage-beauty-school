@@ -27,7 +27,10 @@
       '<circle cx="9" cy="15" r="5"/>' +
       '<path d="M12.6 11.4 20 4"/>',
     "s-mark":
-      '<path d="M12 3v18M3 12h18"/>'
+      '<path d="M12 3v18M3 12h18"/>',
+    // the Dark Jester — the window the room forgot it had
+    "s-jester":
+      '<path d="M12 3.5a8.5 8.5 0 1 0 6.4 14.05A6.6 6.6 0 0 1 12 3.5Z"/>'
   };
 
   var ns = "http://www.w3.org/2000/svg";

@@ -1,0 +1,19 @@
+{
+  "collection": "instruments",
+  "entries": [
+    {
+      "slug": "the-credit",
+      "title": "The Credit",
+      "kind": "played scene",
+      "instrument": "The Emotional Chessboard",
+      "status": "Prototype",
+      "date": "2026-09-11",
+      "description": "A colleague presented your idea as theirs. You have three days, three rooms, and a board that keeps moving. Drawn a different temperament each time you play.",
+      "file": "the-credit.json",
+      "related": [
+        "practice/observe-the-instrument",
+        "practice/analyse-a-generated-artifact"
+      ]
+    }
+  ]
+}

@@ -9,10 +9,11 @@
   "use strict";
 
   var COLLECTIONS = {
-    library:    { label: "Library",    base: "content/library" },
-    practice:   { label: "Practice",   base: "content/practice" },
-    laboratory: { label: "Laboratory", base: "content/laboratory" },
-    projects:   { label: "Projects",   base: "content/projects" }
+    library:     { label: "Library",    base: "content/library" },
+    practice:    { label: "Practice",   base: "content/practice" },
+    laboratory:  { label: "Laboratory", base: "content/laboratory" },
+    projects:    { label: "Projects",   base: "content/projects" },
+    instruments: { label: "Practice",   base: "content/instruments" }
   };
 
   var _indexCache = {};
@@ -72,6 +73,9 @@
   // A project links to its own page only when it has a body file (e.g. a
   // development log); otherwise it is just an anchor on the Projects index.
   function entryHref(collection, slug, entry) {
+    if (collection === "instruments") {
+      return "play.html?id=" + encodeURIComponent(slug);
+    }
     if (collection === "projects") {
       return (entry && entry.file)
         ? "entry.html?c=projects&id=" + encodeURIComponent(slug)

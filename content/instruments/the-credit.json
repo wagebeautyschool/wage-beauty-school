@@ -1,0 +1,814 @@
+{
+  "id": "the-credit",
+  "title": "The Credit",
+  "instrument": "The Emotional Chessboard",
+
+  "marks": {
+    "trust":       { "label": "Trust", "start": 4, "max": 7 },
+    "temperature": { "label": "Temperature", "start": 2, "max": 7 },
+    "alignment":   { "label": "Alignment", "start": 0, "min": -3, "max": 3, "kind": "slider", "poles": ["shared", "a winner"] },
+    "positioning": { "label": "Positioning", "start": 3, "max": 7 }
+  },
+
+  "temperaments": {
+    "appeaser": {
+      "name": ["Thandi", "Marius", "Ayesha"],
+      "pull": "smooth it over",
+      "default": "retreat",
+      "offsets": { "trust": 1, "positioning": -1 },
+      "line": "You feel other people's discomfort before you feel your own. When a room gets tight, you are already reaching for the thing that makes it loosen."
+    },
+    "blade": {
+      "name": ["Sipho", "Chad", "Lerato"],
+      "pull": "say it now",
+      "default": "advance",
+      "offsets": { "positioning": 1, "temperature": 1 },
+      "line": "You would rather have the hard thing said and over than sit inside it. Silence, to you, feels like losing."
+    },
+    "vanisher": {
+      "name": ["Nadia", "Jason", "Bongani"],
+      "pull": "go quiet",
+      "default": "silence",
+      "offsets": { "temperature": -1, "trust": -1 },
+      "line": "When it gets sharp, some part of you steps back and watches from the door. You go quiet, and you tell yourself that is patience."
+    },
+    "manager": {
+      "name": ["Karel", "Zanele", "Priya"],
+      "pull": "control the frame, trade",
+      "default": "trade",
+      "offsets": { "positioning": 1, "alignment": -1 },
+      "line": "You read a room like a ledger — who owes what, what a thing is worth, where the leverage sits. You would rather trade than fight."
+    }
+  },
+
+  "frame": {
+    "text": [
+      "The meeting broke up ten minutes ago. Half the studio has already drifted out toward Sir Lowry Road for lunch; the aircon is still losing to the Woodstock afternoon.",
+      "You built the campaign idea over three late nights. In the room, Ricardo walked the client through it as though it had arrived to him whole. He used the word “we” a lot at first, and then, at the client's favourite slide, he stopped."
+    ]
+  },
+
+  "sets": [
+    {
+      "id": "corridor",
+      "title": "The Corridor",
+      "intro": {
+        "text": [
+          "You catch Ricardo by the coffee station. He's rinsing a mug he didn't use — a thing he does when he'd rather be somewhere else.",
+          "He glances up. “Good session, hey.”"
+        ]
+      },
+      "beats": [
+        {
+          "id": "read",
+          "prompt": "Before you say anything —",
+          "text": "You have a second. Maybe two.",
+          "options": [
+            {
+              "id": "read_words",
+              "label": "Listen back to the words he used in the room.",
+              "reveal": { "text": [
+                "He said “we” through the whole first half — “the direction we landed on”, “what we're proposing”. Then, on the client's favourite slide, it became “my thinking here was”. A clean little seam. He knew exactly where it was."
+              ] }
+            },
+            {
+              "id": "read_tone",
+              "label": "Watch how he's standing.",
+              "reveal": { "text": [
+                "Not triumphant. A degree too casual — the mug, the over-bright “hey”. He is braced for you to make this a thing, which means he already knows it is one."
+              ] }
+            },
+            {
+              "id": "read_unsaid",
+              "label": "Notice what he hasn't said.",
+              "reveal": { "text": [
+                "He hasn't said “my idea” and he hasn't said “your idea”. He's left the sentence open on purpose, so that whatever gets agreed in the next minute becomes the record."
+              ] }
+            },
+            {
+              "id": "read_timing",
+              "label": "Feel where you are in the day.",
+              "reveal": { "text": [
+                "The room has moved on. The client is in a car. Raising this now, in a corridor, over a rinsed mug — you'd be the one making the studio uncomfortable at lunchtime. The ground for a confrontation is worse than it was twenty minutes ago, and it will keep getting worse."
+              ] }
+            },
+            {
+              "id": "no_read",
+              "label": "Don't stop to look. Just say something.",
+              "effect": { "positioning": -1 },
+              "jesterAside": "Straight in, no glance at the floor first. I admire the confidence. I'd admire it more from higher ground.",
+              "reveal": { "text": [ "The words are already moving before you've decided which ones." ] }
+            }
+          ]
+        },
+        {
+          "id": "first_move",
+          "prompt": "He's drying the mug now. Slowly. Waiting to see what you do.",
+          "options": [
+            {
+              "id": "advance_hard",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“That was my idea, Ricardo. All of it.”",
+              "effect": { "positioning": -2, "temperature": 2, "trust": -1, "alignment": -1 },
+              "result": {
+                "text": [
+                  "The word “all” lands wrong even as you say it — too big, unprovable, the kind of claim a corridor can't hold.",
+                  "Ricardo's face does something careful. “Okay,” he says, in the voice people use for someone who's overreacting. “Sure. It was a team effort, but sure.” You are now the person who cornered a colleague by the kettle. That is the position you have."
+                ],
+                "add": {
+                  "chose:read_timing": "You saw this coming a minute ago and walked into it anyway.",
+                  "temperament:blade": "It felt necessary right up until it was out of your mouth."
+                }
+              }
+            },
+            {
+              "id": "name_small",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“The client loved the third slide — the version we worked out on Tuesday.”",
+              "effect": { "positioning": 1, "alignment": 1, "temperature": 1 },
+              "result": {
+                "text": [
+                  "You've said something true and small and hard to argue with. No accusation. Just a fact — “Tuesday”, “we worked out” — laid quietly on the table where it can be picked up later.",
+                  "“Tuesday, ja,” Ricardo says, and you both hear him confirm it."
+                ],
+                "add": {
+                  "temperament:appeaser": "It comes out steadier than you expected. You didn't soften it into nothing.",
+                  "against-type": "It costs you something to be this exact instead of this agreeable."
+                }
+              }
+            },
+            {
+              "id": "retreat_now",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "Let it go. You'll raise it properly later.",
+              "effect": { "positioning": -1 },
+              "result": {
+                "text": [
+                  "“Ja, good session,” you say. He looks relieved, and the relief tells you something. The moment closes over.",
+                  "You've kept your powder dry. You've also let him watch you decide not to fire."
+                ],
+                "add": {
+                  "temperament:appeaser": "The relief in the room is partly yours, and you notice how good it feels, and you file that away.",
+                  "not-chose:read_timing": "Later you'll wonder whether “later” was ever real."
+                }
+              }
+            },
+            {
+              "id": "wait_him_out",
+              "voice": "silence",
+              "family": "silence",
+              "label": "Say nothing. Hold his eye. Let him be the one to break it.",
+              "effect": { "positioning": -1 },
+              "result": {
+                "text": [
+                  "You hold his eye and say nothing. He waits two seconds, then: “Anyway — coffee sometime.” And he's gone, mug drying on the rack.",
+                  "In a corridor, at lunchtime, silence doesn't hold anyone in the room. It just lets them leave it."
+                ],
+                "add": {
+                  "temperament:vanisher": "It felt like you were making him sweat. He wasn't sweating. He was leaving."
+                }
+              }
+            },
+            {
+              "id": "ask_direct",
+              "label": "“Did you mean to present it as yours?”",
+              "effectIf": {
+                "cond": "chose:read_tone",
+                "then": { "trust": 1, "positioning": 1, "temperature": 1 },
+                "else": { "temperature": 3, "positioning": -1, "trust": -1 }
+              },
+              "result": {
+                "text": [ "A real question. It has the drop in it — you don't know how he'll answer." ],
+                "add": {
+                  "chose:read_tone": "Because you clocked how braced he was, you ask it flat, without heat, and it lands as a question and not an ambush. “That's — a bit much,” he says, but he can't say no, and you both notice that he can't.",
+                  "not-chose:read_tone": "You didn't see how ready he was for exactly this. It comes out with an edge you didn't intend, and he gets to be the reasonable one. “Wow. Okay. That's — wow.”"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "meet_deflection",
+          "prompt": "“Look,” Ricardo says, “if it came across as me taking credit, that wasn't the intention. We should grab a coffee, properly, and — you know. Align.”",
+          "options": [
+            {
+              "id": "accept_coffee",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "“Sure. Let's find a time.”",
+              "effect": { "trust": 1, "alignment": -1, "positioning": -1 },
+              "result": {
+                "text": [
+                  "“Perfect,” he says, already moving. The coffee will be pleasant and will settle nothing. But the corridor is over, and you feel your shoulders drop.",
+                  "“Align” is doing a lot of work in that sentence, and you both let it."
+                ]
+              }
+            },
+            {
+              "id": "pin_it",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“It's not about coming across. In the room it was our idea and then it was yours. That's the thing.”",
+              "effect": { "positioning": 2, "temperature": 1, "alignment": 1 },
+              "result": {
+                "text": [
+                  "You've refused the softer word. You named the actual move — “ours, then yours” — without raising your voice.",
+                  "Ricardo stops moving. “…Okay. That's fair. I was in flow, and I didn't — okay.” It's not quite an apology, but it's the first true sentence either of you has said."
+                ],
+                "add": {
+                  "temperament:blade": "For once the hard thing is also the calm thing, and you can feel the difference.",
+                  "against-type": "Every part of you wants to let him off the hook. You don't."
+                }
+              }
+            },
+            {
+              "id": "name_the_move",
+              "label": "“You're offering me a coffee instead of a sentence. I've noticed.”",
+              "effect": { "temperature": 2, "positioning": 1, "alignment": 1, "trust": -1 },
+              "result": {
+                "text": [
+                  "You've called the deflection while it's still in the air. It's true and it's sharp and it doesn't leave him anywhere comfortable to stand.",
+                  "“That's a bit hostile,” he says. Maybe. It's also accurate, and the accuracy is why it stung."
+                ]
+              }
+            },
+            {
+              "id": "let_it_sit",
+              "voice": "silence",
+              "family": "silence",
+              "label": "Say nothing. Let the offer hang there.",
+              "effectIf": {
+                "cond": "chose:read_tone",
+                "then": { "positioning": 2, "alignment": 1, "temperature": -1 },
+                "else": { "positioning": -1, "alignment": -1 }
+              },
+              "result": {
+                "text": [ "You don't fill the silence." ],
+                "add": {
+                  "chose:read_tone": "He's braced for a fight, and you don't give him one — you just wait. Three full seconds. He caves into the gap: “Okay, that came out wrong, in the room. I'll fix it with the client. I'll say it properly.” The silence did work a sentence couldn't.",
+                  "not-chose:read_tone": "But you can't read whether he's about to fold or about to leave, and the pause reads to him as sulking. “…Anyway,” he says, and goes. Silence, used blind, is just absence."
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "resolution": {
+        "text": [
+          "The afternoon goes on. Ricardo is friendly in the way of someone being careful. Twice you nearly bring it up again and twice you don't.",
+          "Whatever the board looks like now, it started with your ground being softer than your certainty — no proof, a room that had moved on, and a colleague who'd already chosen his footing."
+        ],
+        "add": {
+          "count:advance>=2": "You reached for the sharp move more than once. Hold that thought.",
+          "mark:positioning<=1": "You've spent almost everything you walked in with.",
+          "mark:alignment>=2": "You've kept this pointed at the work, not at him. Rarer than it sounds."
+        }
+      },
+      "jester": {
+        "text": [
+          "So. A corridor, a rinsed mug, and a man who'd read the floor while you were still admiring your own reflection in the idea.",
+          "I'm not here to tell you that you played it badly. I've handled worse with less cause and enjoyed it more. I'm here to open the window: you walked in certain, and certainty is not footing. It only feels like it, right up until you put weight on it."
+        ],
+        "question": "Whose approval were you actually chasing in that corridor — the client's, Ricardo's, or your own?"
+      }
+    },
+
+    {
+      "id": "followup",
+      "title": "The Small Room",
+      "intro": {
+        "text": [
+          "Three days later. The coffee did or didn't happen; either way, nothing changed on the record. This morning Ricardo asks if you have a minute, and you end up in the meeting room with the broken blind.",
+          "He's brought two flat whites. He slides one over. “I've been thinking about the other day,” he says. “I really valued building on your thinking in that session. I hope that came through.”"
+        ]
+      },
+      "beats": [
+        {
+          "id": "recognise",
+          "prompt": "“Valued building on your thinking.” He's watching your face.",
+          "text": "The flat white is warm in your hand. His sentence is still in the air.",
+          "options": [
+            {
+              "id": "name_flattery",
+              "label": "See it for what it is: a compliment doing a job. It turns “I took it” into “we collaborated.”",
+              "effect": { "positioning": 2, "alignment": 1 },
+              "result": {
+                "text": [
+                  "You see the shape of it clearly. The warm sentence is a lid. If you say “thanks, you too,” the lid clicks shut and “we built it together” becomes the version everyone remembers.",
+                  "You don't say thanks."
+                ],
+                "add": {
+                  "chose:read_unsaid": "You clocked the open sentence in the corridor. This is him trying to close it in his favour."
+                }
+              }
+            },
+            {
+              "id": "take_compliment",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "“Thanks. You too. It came out well in the end.”",
+              "effect": { "trust": 1, "alignment": -2, "positioning": -2 },
+              "result": {
+                "text": [
+                  "“Exactly,” he says, visibly lighter. “A good team.” The lid clicks shut. You feel the small warm hit of a resolved conversation, and under it, the quieter feeling of having agreed to something you didn't mean.",
+                  "That sentence is now the record."
+                ],
+                "add": {
+                  "temperament:appeaser": "You heard yourself do it and couldn't stop in time."
+                }
+              }
+            },
+            {
+              "id": "test_it",
+              "label": "“Came through as what, exactly?”",
+              "effect": { "temperature": 1, "positioning": 1 },
+              "result": {
+                "text": [
+                  "You've handed the sentence back and asked him to finish it honestly. He can't do it smoothly. “As… me rating your input. Which I do.”",
+                  "“Input,” you repeat, and let the word sit there being too small."
+                ]
+              }
+            },
+            {
+              "id": "warmth_then_move",
+              "voice": "trade",
+              "family": "trade",
+              "label": "Match his warmth exactly, then move: “Appreciate that. So how do we fix the client's understanding?”",
+              "effectIf": {
+                "cond": "mark:trust>=4",
+                "then": { "positioning": 2, "alignment": 2 },
+                "else": { "positioning": 1, "temperature": 1 }
+              },
+              "result": {
+                "text": [ "You take the warm tone and use it as a handle — accept the frame for one second, then pivot straight to the concrete thing that would actually change." ],
+                "add": {
+                  "mark:trust>=4": "There's enough trust in the room that “we fix” doesn't sound like an accusation. He goes with it: “Okay. I can drop the client a note clarifying where it started.”",
+                  "mark:trust<=3": "But the trust isn't there to carry “we”, and he hears the pivot as a trap. “Fix it how? It's fine.”"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "hinge",
+          "prompt": "The flat white is going cold. The board has quietly turned: whatever you agree to in the next minute is what gets said to the client. Silence, from here, is a yes.",
+          "options": [
+            {
+              "id": "state_version",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“Here's what I'd want said: the concept was mine, you helped shape the pitch. I'm not trying to make it a thing — I just want it accurate.”",
+              "effect": { "positioning": 2, "alignment": 1, "temperature": 1 },
+              "result": {
+                "text": [
+                  "Plain, bounded, no heat. You've said exactly what you want and drawn a line around how big a deal it is.",
+                  "“…Yeah,” he says, after a moment. “Okay. That's — yeah. I can send that.”"
+                ],
+                "add": { "against-type": "Every part of you wants to add a softening clause. You leave it as it is." }
+              }
+            },
+            {
+              "id": "trade_version",
+              "voice": "trade",
+              "family": "trade",
+              "label": "“You clarify it with the client, and I won't raise it with Fatima. Clean.”",
+              "effect": { "positioning": 2, "alignment": -1, "trust": -1 },
+              "result": {
+                "text": [
+                  "A straight trade. He gets no formal complaint; you get the correction. It works — and it turns the truth into a transaction, something bought rather than simply said.",
+                  "“Done,” he says, and you shake on it, and it feels a little like both of you lost."
+                ]
+              }
+            },
+            {
+              "id": "hold_silence_hinge",
+              "voice": "silence",
+              "family": "silence",
+              "label": "Say nothing. Drink the coffee. Make him say the next sentence.",
+              "effect": { "alignment": -1, "positioning": -1, "temperature": 1 },
+              "result": {
+                "text": [
+                  "The silence stretches. But you know now that silence here is agreement — and he knows you know. “…So we're good?” he says, and takes your quiet as the yes it now is.",
+                  "The board moved and you played the old move."
+                ],
+                "add": { "temperament:vanisher": "It felt like patience. From the outside it was just a yes with a delay." }
+              }
+            },
+            {
+              "id": "become_vanisher",
+              "kind": "persona",
+              "to": "vanisher",
+              "showIf": "persona:blade",
+              "label": "You could stop swinging. Not go soft — just wait, and let him fill the silences. It won't feel like you.",
+              "effect": { "positioning": 1, "temperature": -1 },
+              "result": {
+                "text": [
+                  "You sit back. You don't say the sharp true thing that's ready. You let the quiet do it instead, and it's uncomfortable in a way that has nothing to do with him.",
+                  "“…Okay,” Ricardo says, into the gap. “I'll write to the client today. It started with you. I should have said that on Tuesday.”"
+                ]
+              }
+            },
+            {
+              "id": "become_blade_a",
+              "kind": "persona",
+              "to": "blade",
+              "showIf": "persona:appeaser",
+              "label": "You could stop smoothing. Say the flat, unsoftened version — no “just”, no “I'm not trying to”. It won't feel like you.",
+              "effect": { "positioning": 1, "alignment": 1 },
+              "result": {
+                "text": [
+                  "You drop the cushioning words. “The concept was mine. I want the client to know that.” No apology attached. It feels rude in your mouth and it isn't.",
+                  "He blinks. “…Fair. Yeah. I'll fix it.”"
+                ]
+              }
+            },
+            {
+              "id": "become_blade_v",
+              "kind": "persona",
+              "to": "blade",
+              "showIf": "persona:vanisher",
+              "label": "You could step back in from the door. Say the thing out loud instead of watching yourself not say it. It won't feel like you.",
+              "effect": { "positioning": 1, "alignment": 1 },
+              "result": {
+                "text": [
+                  "You come back into your own body and say it: “I need the record to say the idea was mine.” Out loud, in the room, to his face. The watching part of you goes quiet.",
+                  "“Okay,” he says. “Okay. I hear you.”"
+                ]
+              }
+            },
+            {
+              "id": "become_blade_m",
+              "kind": "persona",
+              "to": "blade",
+              "showIf": "persona:manager",
+              "label": "You could put the ledger down. Say what's true with nothing attached — no leverage, no deal. It won't feel like you.",
+              "effect": { "positioning": 1, "alignment": 2 },
+              "result": {
+                "text": [
+                  "“The concept was mine. I'm not asking for anything in exchange for saying so — I just want it said.” No leverage. It's oddly defenceless and it works because of that.",
+                  "“…Right,” he says. “Yeah. I'll clarify it.”"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "leave_room",
+          "prompt": "So it's agreed, more or less. The last thing is how you leave the room.",
+          "options": [
+            {
+              "id": "leave_clean",
+              "voice": "trade",
+              "family": "trade",
+              "label": "“Thanks for raising it. Let's both move on properly.”",
+              "effect": { "trust": 1, "alignment": 1 },
+              "result": {
+                "text": [
+                  "You mean it, and he can tell you mean it. You pick up the cold flat white and take it with you.",
+                  "It's not warm between you yet. It's workable."
+                ]
+              }
+            },
+            {
+              "id": "leave_named",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“One thing — next time you're in flow, check whose thread you're pulling.”",
+              "effect": { "positioning": 1, "temperature": 2, "trust": -1 },
+              "result": {
+                "text": [
+                  "You've left him with the lesson, not just the fix. It's a true thing to say and it also had to sting a little to be said.",
+                  "“…Ja. Noted,” he says, and the room cools a degree."
+                ]
+              }
+            },
+            {
+              "id": "leave_grey",
+              "voice": "silence",
+              "family": "silence",
+              "label": "Nod. Leave. Don't perform the reconciliation.",
+              "effect": { "temperature": -1, "trust": -1 },
+              "result": {
+                "text": [
+                  "You get up, say “okay”, and go. You haven't smoothed it over and you haven't made it worse. It just sits there, unfinished, the way real things often do."
+                ]
+              }
+            },
+            {
+              "id": "leave_warm",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "“We're good. Honestly. Thanks for the coffee.” Mean it.",
+              "effectIf": {
+                "cond": "changed-persona",
+                "then": { "trust": 2, "alignment": 1 },
+                "else": { "trust": 2, "positioning": -1 }
+              },
+              "result": {
+                "text": [ "You reset the temperature yourself, deliberately." ],
+                "add": {
+                  "changed-persona": "Coming from the person you've just decided to be, the warmth isn't a retreat — it's a choice. He relaxes, and this time so do you.",
+                  "not-changed-persona": "It's genuine, and it also lets him off entirely, and some part of you registers the trade you just made without discussing it."
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "resolution": {
+        "text": [
+          "You walk back to your desk. The client note goes out that afternoon — you see it CC'd to you — and it says roughly what you needed it to say.",
+          "The board turned in that room. Three days earlier, silence would have read as generosity. In there, it would have read as a yes. Same move, opposite meaning, because the position had moved and most people don't check."
+        ],
+        "add": {
+          "changed-persona": "And somewhere in there you stopped playing the hand you were dealt and started playing a different one. It didn't feel natural. That's usually the sign.",
+          "not-changed-persona": "You played it the way you always play it. Sometimes that's right. It's worth knowing whether you chose it or just defaulted to it."
+        }
+      },
+      "jester": {
+        "text": [
+          "A flat white, a warm sentence, and a lid lowering quietly onto the truth. He's not a villain, this Ricardo — he was “in flow”, which is what we call it when we'd rather not look at what our hands are doing.",
+          "You either saw the board turn or you didn't. The ones who get eaten in rooms like that are almost never outmatched. They're just reading last week's position."
+        ],
+        "question": "If the same sentence can be generosity on Monday and a trap on Thursday, what exactly were you tracking in between?"
+      }
+    },
+
+    {
+      "id": "record",
+      "title": "The Record",
+      "intro": {
+        "text": [
+          "A week on. The work has gone into production and it's going well, which somehow makes the credit matter more, not less.",
+          "In the Friday wrap, Fatima goes round the room, and she gets to the campaign, and she says — lightly, not unkindly — “And whose baby was this one, actually? I've heard two versions.” Ricardo is across the table. Six other people are half-listening. It's your sentence to say or not say."
+        ]
+      },
+      "beats": [
+        {
+          "id": "in_the_room",
+          "prompt": "Fatima's looking between the two of you. The room's gone a little quiet.",
+          "options": [
+            {
+              "id": "claim_it",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“Mine. Ricardo took it into the pitch, but the concept was the Tuesday work.”",
+              "effectIf": {
+                "cond": "mark:positioning>=4",
+                "then": { "positioning": 2, "alignment": 1 },
+                "else": { "positioning": 1, "temperature": 2, "trust": -1 }
+              },
+              "result": {
+                "text": [ "You say it evenly, to Fatima, not at Ricardo." ],
+                "add": {
+                  "mark:positioning>=4": "You've built enough standing over the last two weeks that this just lands as a fact. Fatima nods, writes something. Ricardo says “ja, that's fair,” and it's over.",
+                  "mark:positioning<=3": "But you haven't got the standing behind it, and claiming it flatly in a full room sounds like you've been waiting to. Someone shifts in their chair. Ricardo says “I mean — it was pretty collaborative,” and now it's a he-said."
+                }
+              }
+            },
+            {
+              "id": "share_it",
+              "voice": "trade",
+              "family": "trade",
+              "label": "“Bit of both — I brought the concept, Ricardo built the pitch around it.”",
+              "effect": { "trust": 1, "alignment": 1, "positioning": -1 },
+              "result": {
+                "text": [
+                  "Generous, bounded, true enough. Fatima says “nice, love a good double act,” and moves on. The room relaxes.",
+                  "You've given away a sliver of the truth to keep the peace, and only you and Ricardo know exactly how big the sliver was."
+                ]
+              }
+            },
+            {
+              "id": "redirect_work",
+              "label": "“Does it matter now? It's working. Let's talk about the media plan.”",
+              "effect": { "alignment": -1, "positioning": -2, "temperature": -1 },
+              "result": {
+                "text": [
+                  "The room lets it go, gratefully — nobody wants the Friday meeting to run long. But “does it matter” was a door closing, and you're the one who closed it, and the two versions Fatima mentioned are now permanent."
+                ],
+                "add": { "temperament:vanisher": "It felt like being above it. It was just leaving." }
+              }
+            },
+            {
+              "id": "defer_ricardo",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "Look at Ricardo. “You want to take this one?”",
+              "effect": { "trust": -1, "positioning": -2, "alignment": -1 },
+              "result": {
+                "text": [
+                  "You've handed him the microphone and the framing. “Yeah, it was a real team thing,” he says, smoothly, “but I guess the seed was a conversation we had.”",
+                  "You watch your idea become “a conversation we had,” in front of six people, because you passed him the sentence."
+                ],
+                "add": {
+                  "temperament:appeaser": "You did it to avoid being the one who claims things. You've claimed things exactly zero times in this whole story, and here you are, with nothing."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "aftermath",
+          "prompt": "After the meeting, Ricardo finds you by the lifts.",
+          "options": [
+            {
+              "id": "repair",
+              "voice": "trade",
+              "family": "trade",
+              "label": "“That was fine. We're okay. Genuinely.”",
+              "effectIf": {
+                "cond": "mark:alignment>=1",
+                "then": { "trust": 2, "alignment": 1 },
+                "else": { "trust": 1 }
+              },
+              "result": {
+                "text": [ "He exhales. “Okay. Good. I've been — ja. Sorry about Tuesday. Properly.”" ],
+                "add": { "mark:alignment<=0": "It's civil. It's not repaired. Both of you know the difference and neither says so." }
+              }
+            },
+            {
+              "id": "name_debt",
+              "voice": "advance",
+              "family": "advance",
+              "label": "“We're okay. But you owe me one, and we both know it, and I'll probably call it in.”",
+              "effect": { "positioning": 2, "trust": -1, "temperature": 1 },
+              "result": {
+                "text": [
+                  "Said lightly, half a joke, entirely serious. He laughs, a little uncomfortably. “…Yeah. Fair. Noted.”",
+                  "The debt is on the books now, acknowledged. That's a kind of honesty, even if it's a transactional one."
+                ]
+              }
+            },
+            {
+              "id": "cool_it",
+              "voice": "silence",
+              "family": "silence",
+              "label": "“It's fine.” Get in the lift.",
+              "effect": { "trust": -2, "temperature": -1, "alignment": -1 },
+              "result": {
+                "text": [
+                  "The doors close on his “okay, cool,” which you both know isn't true. It's not a fight. It's just colder now, and it will stay this temperature for months unless someone does something, and neither of you will."
+                ]
+              }
+            },
+            {
+              "id": "forgive_it",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "“Honestly, Ricardo — it's done. I'd rather have you as someone I can work with than be right about a slide.”",
+              "effect": { "trust": 2, "alignment": 2, "positioning": -1 },
+              "result": {
+                "text": [
+                  "You mean it, and the meaning of it changes the air. He looks like someone braced for a bill that didn't come.",
+                  "You've let a real debt go on purpose — not because you didn't notice it, but because the working relationship is worth more than the collection. That's a choice, not a weakness. (It's only a weakness if you didn't notice the debt.)"
+                ],
+                "add": {
+                  "changed-persona": "Coming from who you've become in the last two weeks, this reads as strength. A month ago it would just have been you, folding."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "the_door",
+          "prompt": "Monday. You'll see him at standup. What's the shape of it now?",
+          "options": [
+            {
+              "id": "door_open",
+              "voice": "trade",
+              "family": "trade",
+              "label": "Workable. You'll build with him again — a little more carefully.",
+              "effect": { "alignment": 1, "trust": 1 },
+              "result": {
+                "text": [
+                  "Not close. But you can put work between you and trust it to hold. That's most professional relationships, honestly — a working bridge, not a friendship."
+                ]
+              }
+            },
+            {
+              "id": "door_warm",
+              "voice": "retreat",
+              "family": "retreat",
+              "label": "Fine. Genuinely fine. You're choosing to let it be fine.",
+              "effectIf": {
+                "cond": "mark:trust>=4",
+                "then": { "trust": 1, "alignment": 1 },
+                "else": { "trust": 1, "positioning": -1 }
+              },
+              "result": {
+                "text": [ "You decide it's over, and deciding is most of it." ],
+                "add": { "mark:trust<=3": "Though a decision isn't the same as a fact, and you'll test it a few times before you believe it." }
+              }
+            },
+            {
+              "id": "door_scar",
+              "voice": "silence",
+              "family": "silence",
+              "label": "A scar. You'll be professional and you won't forget.",
+              "effect": { "trust": -1, "alignment": -1 },
+              "result": {
+                "text": [
+                  "You'll be perfectly correct with him from now on, which is its own kind of message. He'll feel it. Some part of you wants him to."
+                ]
+              }
+            },
+            {
+              "id": "door_wiser",
+              "label": "The same — but you move differently now. The small exact thing on the day, not the big one three days late.",
+              "effect": { "positioning": 2, "alignment": 1 },
+              "result": {
+                "text": [
+                  "The lesson isn't about Ricardo. It's about the corridor — the version of you that walked into it certain, and unarmed, and a beat too slow. That version got a little quieter this month."
+                ],
+                "add": { "changed-persona": "You already started. That's what the room with the broken blind was." }
+              }
+            }
+          ]
+        }
+      ],
+      "resolution": {
+        "text": [
+          "The campaign runs. It does well. In the case study that goes up on the studio site months later, the credit line settles into an order you've made your peace with.",
+          "None of it was decided in the room where the work was made. It was decided in a corridor, and a small room with a broken blind, and a Friday meeting — in the beats between the beats, where most of a working life actually happens."
+        ]
+      },
+      "jester": {
+        "text": [
+          "There. The work shipped, the credit landed somewhere, and you are still employed and mostly intact. By the standards of these things, a result.",
+          "One last window, then I'll leave you to your weekend."
+        ],
+        "question": "Of every move you made across three weeks — which one was a decision, and which ones were just you, being you, on rails?"
+      }
+    }
+  ],
+
+  "endings": [
+    {
+      "id": "broke",
+      "title": "It Broke",
+      "when": "mark:temperature>=6",
+      "text": [
+        "It didn't end with a fight, exactly. It ended with a lift door, and a case study that went up with one name on it, and a studio that got a degree colder for everyone in it.",
+        "You were right about the slide. You've been right about the slide this entire time. It turns out that being right about the slide was never the thing actually at stake."
+      ],
+      "jester": [
+        "Well. That happened. And before you brace for it — no, I'm not going to mock this one. I've been in that lift. Everyone worth knowing has been in that lift at least once.",
+        "An ending isn't a failure. This one just has some cleanup, and you already know whose desk it's on. The good news, such as it is: the board resets. Monday is a new position. It always is."
+      ],
+      "question": "You defended the point all the way to the bottom. Would a version of you who cared less about being right have ended up with more?"
+    },
+    {
+      "id": "point_won",
+      "title": "The Point, Won",
+      "when": "mark:alignment<=-1",
+      "text": [
+        "You have it. The credit line reads the way you needed it to. Fatima knows. The client, eventually, knows. On paper, you won.",
+        "The room knows too — knows you're someone who will take a Friday meeting somewhere uncomfortable to get a slide attributed correctly. That's now part of what people reach for when they describe you. It might be worth it. It isn't free."
+      ],
+      "jester": [
+        "Congratulations. You may collect your prize at the front desk — it's a small brass plaque that says YOU WERE CORRECT, and it is surprisingly heavy to carry around an office.",
+        "I tease because I've done exactly this and enjoyed the winning right up until I noticed the room had quietly rearranged itself around me. Harmony isn't losing on purpose. It's noticing that ‘winning’ and ‘the outcome you actually wanted’ are two different squares."
+      ],
+      "question": "You got the point. Did you get the thing you walked into the corridor wanting — or just the point?"
+    },
+    {
+      "id": "harmony",
+      "title": "Harmony",
+      "when": "mark:alignment>=2 mark:trust>=4",
+      "text": [
+        "The credit is accurate. Ricardo sent the note himself in the end, unprompted. You still work together, and the work is slightly better for the fact that you both know exactly what happened and neither of you has to manage it.",
+        "This is the rare one. It didn't come from being soft and it didn't come from winning. It came from reading the board each time it moved, saying the small exact thing on the day, and being willing — once — to stop being the person you usually are."
+      ],
+      "jester": [
+        "Look at you. Both of you intact, the truth on the record, and not a single brass plaque in sight. I had a whole speech prepared and you've gone and made it unnecessary, which is frankly rude.",
+        "One observation, and then I'll go quietly: you did the boring things. You looked at the floor before you put weight on it. You noticed a sentence changing meaning between Monday and Thursday. Nobody will ever give you an award for that, and it is the entire game."
+      ],
+      "question": "That took catching yourself in the act, more than once. Could you do it again on a worse day?"
+    },
+    {
+      "id": "peace_kept",
+      "title": "The Peace, Kept",
+      "fallback": true,
+      "text": [
+        "It settled. Not with a bang, not with a scar — it just smoothed over. You're fine with Ricardo. The case study went up with both names. If anyone asked you now what happened on Tuesday, you'd probably say “ag, it was a whole thing, it's fine.”",
+        "The concept was yours. That fact is still true, and it's now living somewhere just under the surface of a pleasant working relationship — where true things go when nobody quite says them."
+      ],
+      "jester": [
+        "Very smooth. Genuinely — you kept the room comfortable, you kept the working relationship, you kept the temperature down. Impressive footwork.",
+        "I'm only going to poke you once. You walked into that corridor with a specific sentence you needed to say. Three weeks and a lot of flat whites later —"
+      ],
+      "question": "— did you ever actually say it? Out loud? To someone who wrote it down?"
+    }
+  ],
+
+  "passages": [
+    { "label": "How to Play on the Emotional Chessboard — the Middlegame", "href": "entry.html?c=projects&id=shorigan&doc=the-eye-of-integration" },
+    { "label": "The same book — the Shadow, and the moves that exist only to exploit the board", "href": "entry.html?c=projects&id=shorigan&doc=the-eye-of-integration" },
+    { "label": "Practice — Observe the Instrument", "href": "entry.html?c=practice&id=observe-the-instrument" },
+    { "label": "Walk it again", "action": "replay" }
+  ]
+}

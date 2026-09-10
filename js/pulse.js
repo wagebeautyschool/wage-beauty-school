@@ -20,7 +20,8 @@
       library: (all.library || []).length,
       practice: (all.practice || []).length,
       laboratory: (all.laboratory || []).length,
-      projects: (all.projects || []).length
+      projects: (all.projects || []).length,
+      instruments: (all.instruments || []).length
     };
     var labActive = (all.laboratory || []).filter(function (e) {
       return !DORMANT.test(e.status || "");

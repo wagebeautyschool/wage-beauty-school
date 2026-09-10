@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0c0b10">
-  <title>Practice — Wage Beauty School</title>
-  <meta name="description" content="Practice at Wage Beauty School is built around questions and exercises rather than lectures. The Library asks you to read; Practice asks you to do.">
+  <title>A played scene — Wage Beauty School</title>
+  <meta name="description" content="A played scene from Wage Beauty School: a small emotional-chessboard game. You act, the board shifts, the Dark Jester names it.">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
@@ -20,7 +20,7 @@
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
           <li><a href="library.html"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
-          <li><a href="practice.html" aria-current="page"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="practice.html"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
           <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
           <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
           <li><a href="about.html"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
@@ -31,27 +31,12 @@
 
   <main id="main">
     <div class="wrap">
-      <div class="page-head">
-        <p class="room-tab"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg><span>Practice &nbsp;·&nbsp; participation</span></p>
-        <h1>Practice</h1>
-        <p class="lede">The school is not primarily a course. Practice is a set of questions
-        and exercises — each with a little context, something to do, and something to sit with.</p>
-      </div>
-
-      <div class="archive-intro">
-        <p>The Library asks you to read. Practice asks you to <em>do</em>. Each exercise
-        opens with a question and gives you an action; the reflection at the end is folded
-        away until you choose to see it, so that it is arrived at rather than skimmed.</p>
-      </div>
-
+      <a class="back-link" href="practice.html">Back to Practice</a>
       <noscript>
-        <p class="muted">This index needs JavaScript. The exercises themselves are plain
-        Markdown in <a href="content/practice/">content/practice/</a>.</p>
+        <p class="muted">A played scene needs JavaScript. The thinking behind it is in
+        <a href="entry.html?c=projects&id=shorigan&doc=the-eye-of-integration">How to Play on the Emotional Chessboard</a>.</p>
       </noscript>
-
-      <nav id="instruments" class="instruments" aria-label="Played scenes"></nav>
-
-      <div id="listing" data-collection="practice"></div>
+      <div id="instrument"><p class="muted">Setting the board…</p></div>
     </div>
   </main>
 
@@ -73,8 +58,7 @@
 
   <script src="js/sigils.js"></script>
   <script src="js/data.js"></script>
-  <script src="js/collection.js"></script>
-  <script src="js/instruments.js"></script>
+  <script src="js/instrument.js"></script>
   <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
