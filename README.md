@@ -151,25 +151,55 @@ Add a block to `content/projects/index.json`. Projects have no body file:
 
 ---
 
-## Deploying to GitHub Pages
+## Publishing the site (first time)
 
-1. Create a repository and push this folder to it.
-2. In the repository, go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**,
-   branch `main`, folder `/ (root)`. Save.
-4. Wait a minute, then visit the URL Pages shows you.
+### Guided
+
+Run the walkthrough script from the project folder:
+
+```bash
+bash scripts/publish.sh
+```
+
+It opens each page you need, tells you exactly what to click, creates the
+GitHub connection, uploads the site, and waits for the live URL. Safe to
+stop (Ctrl-C) and re-run — it remembers your username.
+
+### Manual
+
+1. Create a free account at <https://github.com/signup>.
+2. Create a new **public** repository at <https://github.com/new> named
+   `wage-beauty-school`. Do **not** add a README, `.gitignore`, or licence —
+   it must start empty.
+3. From this folder:
+   ```bash
+   git remote add origin https://github.com/<username>/wage-beauty-school.git
+   git branch -M main
+   git push -u origin main
+   ```
+   The first push opens a browser to authorise Git — sign in and approve.
+4. In the repository: **Settings → Pages → Build and deployment**. Set
+   **Source** to **Deploy from a branch**, branch `main`, folder `/ (root)`. Save.
+5. Wait 1–3 minutes, then visit
+   `https://<username>.github.io/wage-beauty-school/`.
+
+### Publishing changes afterwards
+
+```bash
+git add -A && git commit -m "describe the change" && git push
+```
+
+The live site updates a minute or two later.
 
 The `.nojekyll` file is already present so that the `content/`, `js/`, and
 `vendor/` folders are served untouched.
 
-**Absolute vs. relative paths.** Every page except `404.html` uses relative
-links, so the site works whether it is served from a domain root
-(`wagebeautyschool.org`, or `<username>.github.io`) or a project subpath
-(`<username>.github.io/wage-beauty-school/`). `404.html` uses root-absolute
-paths (`/css/…`), which GitHub Pages requires for the error page and which
-assume deployment at a **domain root**. If you deploy to a project subpath and
-want a styled 404, either use a custom domain or change the four `/…` paths in
-`404.html` — everything else already works.
+**Absolute vs. relative paths.** Every content page uses relative links, so the
+site works whether it is served from a domain root (`wagebeautyschool.org`, or
+`<username>.github.io`) or a project subpath
+(`<username>.github.io/wage-beauty-school/`). `404.html` is fully self-contained
+(its own inline styles, no external files) and repoints its two links to the
+correct site root at load time, so it works in every case.
 
 To use a custom domain, add a file named `CNAME` containing just the domain
 (e.g. `wagebeautyschool.org`) and configure DNS as GitHub documents.

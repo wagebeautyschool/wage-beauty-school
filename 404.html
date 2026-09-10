@@ -1,51 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Not found — Wage Beauty School</title>
   <meta name="description" content="That page could not be found.">
-  <link rel="stylesheet" href="/css/style.css">
-  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <style>
+    /* 404 is deliberately self-contained: no external CSS or JS dependency, so
+       it renders correctly no matter what path GitHub Pages serves it from. */
+    :root {
+      --paper: #f7f4ec; --ink: #1c1b18; --ink-soft: #55524a;
+      --rule: #dcd6c5; --accent: #8a3324;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #15140f; --ink: #e9e4d5; --ink-soft: #ada695;
+        --rule: #322e24; --accent: #dc8b70;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 1.125rem; line-height: 1.65;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    .bar {
+      border-bottom: 1px solid var(--rule); padding: 1.25rem 1.5rem;
+      font-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.8rem; letter-spacing: 0.24em; text-transform: uppercase;
+    }
+    .bar a { color: inherit; text-decoration: none; }
+    main { flex: 1; max-width: 42rem; margin: 0 auto; padding: 4rem 1.5rem; }
+    .kicker {
+      font-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-soft); margin: 0 0 1.4rem;
+    }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 1rem; }
+    p { color: var(--ink-soft); max-width: 36ch; }
+    a { color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--rule); padding: 2rem 1.5rem; color: var(--ink-soft);
+      font-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.76rem; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="wordmark" href="/index.html">Wage Beauty School</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="/library.html">Library</a></li>
-          <li><a href="/practice.html">Practice</a></li>
-          <li><a href="/laboratory.html">Laboratory</a></li>
-          <li><a href="/projects.html">Projects</a></li>
-          <li><a href="/about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <div class="wrap wrap--reading">
-      <div class="page-head">
-        <p class="kicker">Error 404</p>
-        <h1>That page is not in the catalogue.</h1>
-        <p class="lede">The School is still being built, so some doors lead nowhere yet.
-        Try the <a href="/library.html">Library</a> or return <a href="/index.html">home</a>.</p>
-      </div>
-    </div>
+  <div class="bar"><a href="/" data-root="">Wage Beauty School</a></div>
+  <main>
+    <p class="kicker">Error 404</p>
+    <h1>That page is not in the catalogue.</h1>
+    <p>The School is still being built, so some doors lead nowhere yet.
+    Try the <a href="/library.html" data-root="library.html">Library</a> or return
+    <a href="/" data-root="">home</a>.</p>
   </main>
+  <footer>Wage Beauty School · A living school for creative engineers</footer>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <p class="creed">The more powerful the instrument becomes, the more important the person using it becomes.</p>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
-    </div>
-  </footer>
-
-  <script src="/js/main.js"></script>
+  <script>
+    /* Repoint links at the real site root whether this is served from a domain
+       root or a GitHub Pages project subpath (…github.io/<repo>/…). Without JS,
+       the plain "/" links above still work on a custom domain or user site. */
+    (function () {
+      var host = location.hostname;
+      var seg = location.pathname.split("/")[1] || "";
+      var onProjectPage = /\.github\.io$/.test(host) && seg && seg + ".github.io" !== host;
+      var base = onProjectPage ? "/" + seg + "/" : "/";
+      var links = document.querySelectorAll("[data-root]");
+      for (var i = 0; i < links.length; i++) {
+        links[i].setAttribute("href", base + links[i].getAttribute("data-root"));
+      }
+    })();
+  </script>
 </body>
 </html>
