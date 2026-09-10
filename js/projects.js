@@ -24,7 +24,7 @@
         return '<a href="' + wbs.esc(l.url) + '"' +
           (/^https?:/i.test(l.url) ? ' rel="noopener"' : '') + '>' + wbs.esc(l.label) + '</a>';
       });
-      var docCount = (p.documents || []).length;
+      var docCount = (p.documents || []).filter(function (d) { return !d.hidden; }).length;
       var related = (p.related || []).map(function (ref) {
         var parts = String(ref).split("/");
         var found = (all[parts[0]] || []).filter(function (e) { return e.slug === parts[1]; })[0];

@@ -34,8 +34,8 @@
 
     if (docSlug) {
       var doc = (entry.documents || []).filter(function (d) { return d.slug === docSlug; })[0];
-      if (!doc) {
-        wbs.showError(root, "That document is not part of " + entry.title + ".");
+      if (!doc || doc.hidden) {
+        wbs.showError(root, "That document is being revised and is not available right now.");
         return;
       }
       setMeta(doc.title, doc.description);
@@ -116,10 +116,11 @@
   }
 
   function docList(entry) {
-    if (!entry.documents || !entry.documents.length) { return ""; }
+    var docs = (entry.documents || []).filter(function (d) { return !d.hidden; });
+    if (!docs.length) { return ""; }
     var byAspect = {};
     var order = [];
-    entry.documents.forEach(function (d) {
+    docs.forEach(function (d) {
       var a = d.aspect || "Documents";
       if (!byAspect[a]) { byAspect[a] = []; order.push(a); }
       byAspect[a].push(d);

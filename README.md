@@ -168,6 +168,9 @@ shape (About / Status / Development log, newest entries first).
 
 **A project can also carry a set of documents.** Add a `"documents"` array;
 each entry is `{ slug, title, aspect, file, source, status, date, description }`.
+Add `"hidden": true` to a document to take it out of circulation while it is
+being revised: it drops off the project page and its direct URL reports that it
+is being revised. The `.md` file stays in the repo. Remove the flag to restore it.
 The project page then shows them grouped by `aspect`, and each links to
 `entry.html?c=projects&id=<project>&doc=<doc-slug>` — a full reading page
 rendered from `file` (a path under `content/projects/`), with `source` (a PDF
