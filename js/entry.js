@@ -1,5 +1,6 @@
-/* Renders a single entry (a Library document, a Practice exercise, or a
-   Laboratory experiment). Reads ?c=<collection>&id=<slug> from the URL. */
+/* Renders a single entry: a Library document, a Practice exercise, a
+   Laboratory experiment, or a Project that has its own page (e.g. a
+   development log). Reads ?c=<collection>&id=<slug> from the URL. */
 (function () {
   "use strict";
 
@@ -11,16 +12,20 @@
   var slug = params.get("id");
   var cfg = wbs.COLLECTIONS[collection];
 
-  if (!cfg || !slug || collection === "projects") {
+  if (!cfg || !slug) {
     wbs.showError(root, "That document could not be found.");
     return;
   }
 
-  Promise.all([wbs.loadAllIndexes(), null]).then(function (res) {
-    var all = res[0];
+  wbs.loadAllIndexes().then(function (all) {
     var entry = (all[collection] || []).filter(function (e) { return e.slug === slug; })[0];
     if (!entry) {
       wbs.showError(root, "That document is not in the " + cfg.label + " catalogue.");
+      return;
+    }
+    // A project without its own body file lives only on the Projects index.
+    if (collection === "projects" && !entry.file) {
+      window.location.replace("projects.html#" + encodeURIComponent(slug));
       return;
     }
     document.title = entry.title + " — Wage Beauty School";
@@ -39,11 +44,10 @@
     return refs.map(function (ref) {
       var parts = String(ref).split("/");
       var col = parts[0], s = parts[1];
-      var list = all[col] || [];
-      var found = list.filter(function (e) { return e.slug === s; })[0];
+      var found = (all[col] || []).filter(function (e) { return e.slug === s; })[0];
       if (!found) { return null; }
       return {
-        href: wbs.entryHref(col, s),
+        href: wbs.entryHref(col, s, found),
         title: found.title,
         where: (wbs.COLLECTIONS[col] || {}).label || col
       };
@@ -57,6 +61,12 @@
     if (entry.status) { dl.push(["Status", entry.status]); }
     if (entry.date) { dl.push(["Dated", wbs.formatDate(entry.date)]); }
 
+    var links = (entry.links || []).map(function (l) {
+      var ext = /^https?:/i.test(l.url);
+      return '<a href="' + wbs.esc(l.url) + '"' +
+        (ext ? ' rel="noopener"' : '') + '>' + wbs.esc(l.label) + '</a>';
+    });
+
     var related = resolveRelated(entry.related, all);
 
     root.innerHTML = '' +
@@ -69,6 +79,8 @@
         '<dl class="dl">' + dl.map(function (row) {
           return '<dt>' + wbs.esc(row[0]) + '</dt><dd>' + wbs.esc(row[1]) + '</dd>';
         }).join("") + '</dl>' +
+        (links.length ? '<p class="meta-line entry-header__links">' +
+          links.join(' &nbsp;·&nbsp; ') + '</p>' : '') +
       '</header>' +
       '<div class="prose">' + wbs.renderMarkdown(md) + '</div>' +
       (related.length ? (

@@ -31,10 +31,13 @@
     {
       "slug": "song-of-the-fallen",
       "title": "Song of the Fallen",
-      "type": "Creative work",
-      "status": "In Progress",
-      "description": "A piece of narrative work connected to Shorigan. Held here as a project so its process — the drafts, the cuts, the forks — can be recorded rather than hidden.",
-      "links": [],
+      "type": "Creative work — interactive fiction",
+      "status": "Hiatus",
+      "description": "A piece of narrative work connected to Shorigan, written and published as interactive fiction. Currently on hiatus — more words are coming. Its process — the drafts, the cuts, the forks — is recorded in the development log.",
+      "file": "song-of-the-fallen.md",
+      "links": [
+        { "label": "Read it on cogdemos.ink", "url": "https://cogdemos.ink/play/left4bed/song-of-the-fallen/mygame" }
+      ],
       "related": ["practice/reconstruct-a-creative-process"]
     }
   ]

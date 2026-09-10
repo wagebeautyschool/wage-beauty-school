@@ -69,8 +69,14 @@
     return '<span class="tag' + (strong ? " tag--accent" : "") + '">' + esc(status) + "</span>";
   }
 
-  function entryHref(collection, slug) {
-    if (collection === "projects") { return "projects.html#" + encodeURIComponent(slug); }
+  // A project links to its own page only when it has a body file (e.g. a
+  // development log); otherwise it is just an anchor on the Projects index.
+  function entryHref(collection, slug, entry) {
+    if (collection === "projects") {
+      return (entry && entry.file)
+        ? "entry.html?c=projects&id=" + encodeURIComponent(slug)
+        : "projects.html#" + encodeURIComponent(slug);
+    }
     return "entry.html?c=" + encodeURIComponent(collection) + "&id=" + encodeURIComponent(slug);
   }
 

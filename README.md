@@ -69,7 +69,8 @@ wage-beauty-school/
     │   ├── index.json
     │   └── *.md
     └── projects/
-        └── index.json        Projects are metadata-only (no body files)
+        ├── index.json        Manifest: one block per project
+        └── *.md              Optional — a project's own page (e.g. a dev log)
 ```
 
 The page header and footer are copied into each HTML file by hand. That is the
@@ -115,7 +116,7 @@ the "Related material" links all update automatically.
 | `title` | Shown everywhere. |
 | `category` | Free text. New categories appear as filter buttons on their own. Suggested set: Emotional Resilience · Media Literacy · Critical Thinking · Creative Engineering · Artificial Intelligence · Storytelling · Philosophy · Communication · Systems Thinking. |
 | `type` | Free text — Essay, Note, Experiment Note, Exercise, etc. |
-| `status` | One of: Note · Working Draft · Experiment · Prototype · Established · Archived (Laboratory also uses Idea · In Progress · Functional). `Established` and `Functional` are shown in the accent colour. |
+| `status` | One of: Note · Working Draft · Experiment · Prototype · Established · Archived (Laboratory also uses Idea · In Progress · Functional; Projects also use In Progress · Hiatus). `Established` and `Functional` are shown in the accent colour. |
 | `date` | `YYYY-MM-DD`. Used for sorting (newest first) and display. |
 | `description` | One or two sentences. |
 | `file` | Filename inside the same collection folder. |
@@ -136,7 +137,7 @@ These are conventions, not code — the renderer just displays the Markdown.
 
 ### A new Project
 
-Add a block to `content/projects/index.json`. Projects have no body file:
+Add a block to `content/projects/index.json`:
 
 ```json
 {
@@ -145,10 +146,21 @@ Add a block to `content/projects/index.json`. Projects have no body file:
   "type": "Ongoing work",
   "status": "In Progress",
   "description": "A short paragraph.",
-  "links": [{ "label": "Repository", "url": "https://github.com/…" }],
+  "links": [{ "label": "Play it", "url": "https://…" }],
   "related": ["library/how-to-play-on-the-emotional-chessboard"]
 }
 ```
+
+`links` is an array of `{ "label", "url" }` — external links people can follow
+(a playable build, a repository, a write-up).
+
+**Projects can also have their own page.** Add `"file": "my-project.md"` and
+create `content/projects/my-project.md` — the project's title and a "Development
+log & notes" link then point to a full page rendered from that Markdown, good
+for a running development log. Without `file`, the project stays as a single
+record on the Projects index. See `song-of-the-fallen.md` for the shape: a
+standfirst, an **About** section, a **Status** section, then a **Development
+log** with dated entries, newest first.
 
 ---
 
