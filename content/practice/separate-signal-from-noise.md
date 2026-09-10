@@ -4,7 +4,7 @@ In the streams you follow, how much is signal, how much is signal you cannot yet
 
 ## Context
 
-See the Library note [Signal and Noise](entry.html?c=library&id=signal-and-noise). Briefly: noise is often signal in unfamiliar units or at the wrong scale, and the useful move is to route rather than discard.
+Noise is often not the absence of signal but signal in unfamiliar units, or signal at the wrong scale. The useful move is usually to route it rather than discard it — to sort what you cannot yet read into a pile to learn from later, rather than throwing it away.
 
 ## Exercise
 

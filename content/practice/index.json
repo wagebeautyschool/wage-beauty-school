@@ -10,7 +10,7 @@
       "date": "2026-01-22",
       "description": "Spend a working session watching how your main tool shapes what you make, without trying to change anything.",
       "file": "observe-the-instrument.md",
-      "related": ["library/the-more-powerful-the-instrument", "library/reading-the-instrument"]
+      "related": ["library/how-to-play-chess-with-yourself"]
     },
     {
       "slug": "question-the-default",
@@ -21,7 +21,7 @@
       "date": "2026-01-24",
       "description": "Take one default setting, template, or first suggestion and find out who chose it and what it costs you.",
       "file": "question-the-default.md",
-      "related": ["library/reading-the-instrument"]
+      "related": ["library/how-to-play-chess-with-yourself"]
     },
     {
       "slug": "build-badly",
@@ -43,7 +43,7 @@
       "date": "2026-02-12",
       "description": "Direct the instrument through a whole small task, staying the author of every decision it hands back to you.",
       "file": "work-with-ai.md",
-      "related": ["library/the-more-powerful-the-instrument", "practice/compare-the-two"]
+      "related": ["practice/work-without-ai", "practice/compare-the-two"]
     },
     {
       "slug": "work-without-ai",
@@ -76,7 +76,7 @@
       "date": "2026-02-24",
       "description": "Take a stream of information you follow and sort a week of it into signal, unfamiliar units, and actual noise.",
       "file": "separate-signal-from-noise.md",
-      "related": ["library/signal-and-noise", "library/the-emotional-chessboard"]
+      "related": ["library/how-to-play-chess-with-yourself"]
     },
     {
       "slug": "analyse-a-generated-artifact",
@@ -87,7 +87,7 @@
       "date": "2026-04-14",
       "description": "Take one AI output and take it apart: the claim, the load-bearing parts, the unexamined assumptions.",
       "file": "analyse-a-generated-artifact.md",
-      "related": ["library/on-generated-artifacts", "library/reading-the-instrument"]
+      "related": ["laboratory/same-prompt-ten-times"]
     },
     {
       "slug": "reconstruct-a-creative-process",
@@ -98,7 +98,7 @@
       "date": "2026-03-18",
       "description": "Take a finished work you admire and write the sequence of decisions that plausibly produced it.",
       "file": "reconstruct-a-creative-process.md",
-      "related": ["library/the-responsibility-to-say-something"]
+      "related": ["library/how-to-play-chess-with-yourself"]
     }
   ]
 }

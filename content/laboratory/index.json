@@ -10,7 +10,7 @@
       "date": "2026-04-09",
       "description": "Run one identical prompt through a model ten times and read the disagreement between the results as a map of where it is least grounded.",
       "file": "same-prompt-ten-times.md",
-      "related": ["library/on-generated-artifacts", "practice/analyse-a-generated-artifact"]
+      "related": ["practice/analyse-a-generated-artifact"]
     },
     {
       "slug": "building-badly-on-purpose",
@@ -43,7 +43,7 @@
       "date": "2026-05-02",
       "description": "A planned month of unassisted daily writing, measured against a baseline, to see which capacities recover and how fast.",
       "file": "writing-without-the-instrument.md",
-      "related": ["practice/work-without-ai", "library/the-responsibility-to-say-something"]
+      "related": ["practice/work-without-ai", "library/how-to-play-chess-with-yourself"]
     }
   ]
 }

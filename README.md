@@ -100,7 +100,7 @@ deliberate cost of having no build step: to change navigation, edit every
      "date": "2026-09-10",
      "description": "One sentence shown on the Library card and at the top of the page.",
      "file": "my-new-document.md",
-     "related": ["library/the-emotional-chessboard", "practice/question-the-default"]
+     "related": ["library/how-to-play-chess-with-yourself", "practice/question-the-default"]
    }
    ```
 
@@ -146,7 +146,7 @@ Add a block to `content/projects/index.json`. Projects have no body file:
   "status": "In Progress",
   "description": "A short paragraph.",
   "links": [{ "label": "Repository", "url": "https://github.com/…" }],
-  "related": ["library/on-generated-artifacts"]
+  "related": ["library/how-to-play-on-the-emotional-chessboard"]
 }
 ```
 

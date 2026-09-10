@@ -4,7 +4,7 @@ If you take one AI output apart, what is actually holding it up?
 
 ## Context
 
-A generated artifact arrives whole and fluent, which makes it hard to see the seams. This exercise is a way of forcing the seams back into view. Pair it with the Library note [On Generated Artifacts](entry.html?c=library&id=on-generated-artifacts).
+A generated artifact arrives whole and fluent, which makes it hard to see the seams. It is a dense average of a great deal of prior work, most confident where its source material was thickest — which is not the same as where the truth is clearest. This exercise is a way of forcing the seams back into view. Pair it with the Laboratory experiment [Same Prompt, Ten Times](entry.html?c=laboratory&id=same-prompt-ten-times).
 
 ## Exercise
 
