@@ -1,0 +1,41 @@
+{
+  "collection": "projects",
+  "entries": [
+    {
+      "slug": "shorigan",
+      "title": "Shorigan",
+      "type": "Ongoing work",
+      "status": "In Progress",
+      "description": "A long-form world and the practice of building it deliberately — the setting in which much of the School's thinking about storytelling, systems, and meaning gets tested against something real.",
+      "links": [],
+      "related": ["library/the-responsibility-to-say-something", "practice/reconstruct-a-creative-process"]
+    },
+    {
+      "slug": "infinite-story-engine",
+      "title": "Infinite Story Engine",
+      "type": "Tool / experiment",
+      "status": "Prototype",
+      "description": "An attempt to build a system that generates continuous narrative while keeping a human firmly in the role of author and editor. As much a study of where that role breaks down as a product.",
+      "links": [],
+      "related": ["library/on-generated-artifacts", "laboratory/same-prompt-ten-times"]
+    },
+    {
+      "slug": "media-production-engine",
+      "title": "Media Production Engine",
+      "type": "Tool / workflow",
+      "status": "In Progress",
+      "description": "A working pipeline for producing finished media with mixed human and machine steps, built to make each hand-off visible and each decision attributable to a person.",
+      "links": [],
+      "related": ["library/reading-the-instrument", "practice/work-with-ai"]
+    },
+    {
+      "slug": "song-of-the-fallen",
+      "title": "Song of the Fallen",
+      "type": "Creative work",
+      "status": "In Progress",
+      "description": "A piece of narrative work connected to Shorigan. Held here as a project so its process — the drafts, the cuts, the forks — can be recorded rather than hidden.",
+      "links": [],
+      "related": ["practice/reconstruct-a-creative-process"]
+    }
+  ]
+}

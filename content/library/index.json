@@ -1,0 +1,92 @@
+{
+  "collection": "library",
+  "entries": [
+    {
+      "slug": "the-emotional-chessboard",
+      "title": "The Emotional Chessboard",
+      "category": "Emotional Resilience",
+      "type": "Essay",
+      "status": "Working Draft",
+      "date": "2026-03-04",
+      "description": "A model for staying deliberate under emotional pressure: treat feeling and position as a board you can read, rather than weather that happens to you.",
+      "file": "the-emotional-chessboard.md",
+      "related": [
+        "library/the-more-powerful-the-instrument",
+        "library/signal-and-noise",
+        "practice/separate-signal-from-noise"
+      ]
+    },
+    {
+      "slug": "the-more-powerful-the-instrument",
+      "title": "The More Powerful the Instrument",
+      "category": "Philosophy",
+      "type": "Essay",
+      "status": "Established",
+      "date": "2026-01-19",
+      "description": "The founding argument of the School. As instruments get stronger, the judgement of the person holding them becomes the scarce and decisive part.",
+      "file": "the-more-powerful-the-instrument.md",
+      "related": [
+        "library/the-responsibility-to-say-something",
+        "library/on-generated-artifacts",
+        "practice/observe-the-instrument"
+      ]
+    },
+    {
+      "slug": "reading-the-instrument",
+      "title": "Reading the Instrument",
+      "category": "Media Literacy",
+      "type": "Note",
+      "status": "Note",
+      "date": "2026-02-02",
+      "description": "A short checklist for looking at a piece of media and asking what made it, who aimed it, and what it wants from you.",
+      "file": "reading-the-instrument.md",
+      "related": [
+        "library/on-generated-artifacts",
+        "practice/analyse-a-generated-artifact"
+      ]
+    },
+    {
+      "slug": "signal-and-noise",
+      "title": "Signal and Noise",
+      "category": "Systems Thinking",
+      "type": "Essay",
+      "status": "Working Draft",
+      "date": "2026-02-21",
+      "description": "Noise is not the absence of signal; it is signal you have not yet learned to read. A working note on filtering without discarding.",
+      "file": "signal-and-noise.md",
+      "related": [
+        "library/the-emotional-chessboard",
+        "practice/separate-signal-from-noise"
+      ]
+    },
+    {
+      "slug": "on-generated-artifacts",
+      "title": "On Generated Artifacts",
+      "category": "Artificial Intelligence",
+      "type": "Experiment Note",
+      "status": "Experiment",
+      "date": "2026-04-11",
+      "description": "What a generated image, sentence, or plan actually is — a dense average of prior work — and how to hold one responsibly.",
+      "file": "on-generated-artifacts.md",
+      "related": [
+        "library/reading-the-instrument",
+        "laboratory/same-prompt-ten-times",
+        "practice/analyse-a-generated-artifact"
+      ]
+    },
+    {
+      "slug": "the-responsibility-to-say-something",
+      "title": "The Responsibility to Say Something",
+      "category": "Communication",
+      "type": "Note",
+      "status": "Note",
+      "date": "2026-01-27",
+      "description": "Fluency is now cheap. Having something to say, and meaning it, is the part that did not get automated.",
+      "file": "the-responsibility-to-say-something.md",
+      "related": [
+        "library/the-more-powerful-the-instrument",
+        "practice/reconstruct-a-creative-process"
+      ]
+    }
+  ]
+}

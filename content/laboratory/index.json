@@ -1,0 +1,49 @@
+{
+  "collection": "laboratory",
+  "entries": [
+    {
+      "slug": "same-prompt-ten-times",
+      "title": "Same Prompt, Ten Times",
+      "category": "Artificial Intelligence",
+      "type": "Experiment",
+      "status": "Functional",
+      "date": "2026-04-09",
+      "description": "Run one identical prompt through a model ten times and read the disagreement between the results as a map of where it is least grounded.",
+      "file": "same-prompt-ten-times.md",
+      "related": ["library/on-generated-artifacts", "practice/analyse-a-generated-artifact"]
+    },
+    {
+      "slug": "building-badly-on-purpose",
+      "title": "Building Badly on Purpose",
+      "category": "Creative Engineering",
+      "type": "Experiment",
+      "status": "In Progress",
+      "date": "2026-03-01",
+      "description": "A log of deliberately crude first builds and what each one exposed that a careful build would have hidden.",
+      "file": "building-badly-on-purpose.md",
+      "related": ["practice/build-badly"]
+    },
+    {
+      "slug": "the-reconstruction-exercise",
+      "title": "The Reconstruction Exercise",
+      "category": "Storytelling",
+      "type": "Experiment",
+      "status": "Prototype",
+      "date": "2026-03-20",
+      "description": "Testing whether reconstructing the decision history of an admired work transfers to better decisions in your own.",
+      "file": "the-reconstruction-exercise.md",
+      "related": ["practice/reconstruct-a-creative-process"]
+    },
+    {
+      "slug": "writing-without-the-instrument",
+      "title": "Writing Without the Instrument",
+      "category": "Communication",
+      "type": "Experiment",
+      "status": "Idea",
+      "date": "2026-05-02",
+      "description": "A planned month of unassisted daily writing, measured against a baseline, to see which capacities recover and how fast.",
+      "file": "writing-without-the-instrument.md",
+      "related": ["practice/work-without-ai", "library/the-responsibility-to-say-something"]
+    }
+  ]
+}
