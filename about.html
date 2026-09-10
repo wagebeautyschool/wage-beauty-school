@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>About — Wage Beauty School</title>
-  <meta name="description" content="What Wage Beauty School is, what a creative engineer is, why the School exists, and why it is being built in public.">
+  <meta name="description" content="What Wage Beauty School is, what a creative engineer is, why the school exists, and why it is being built in public. The school's statement of principles.">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
@@ -14,15 +15,15 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="wordmark" href="index.html">Wage Beauty School</a>
+      <a class="wordmark" href="index.html"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="practice.html">Practice</a></li>
-          <li><a href="laboratory.html">Laboratory</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="library.html"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
+          <li><a href="practice.html"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
+          <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
+          <li><a href="about.html" aria-current="page"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
         </ul>
       </nav>
     </div>
@@ -31,8 +32,10 @@
   <main id="main">
     <div class="wrap wrap--reading">
       <div class="page-head">
-        <p class="kicker">Wage Beauty School</p>
+        <p class="room-tab"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg><span>About &nbsp;·&nbsp; the principles</span></p>
         <h1>About</h1>
+        <p class="lede">Not a corporate &ldquo;About Us&rdquo; page. The school's statement of
+        what it is, who it is for, and why it is being built in the open.</p>
       </div>
 
       <div class="prose">
@@ -42,8 +45,8 @@
         concerned with critical thinking, media literacy, emotional resilience, creative
         engineering, artificial intelligence, storytelling, philosophy, communication, and
         systems thinking.</p>
-        <p>Artificial intelligence is one instrument within the School, not the School's
-        entire subject. The School is interested in what a person does with an instrument,
+        <p>Artificial intelligence is one instrument within the school, not the school's
+        entire subject. The school is interested in what a person does with an instrument,
         and in what they choose to say.</p>
 
         <h2>What a creative engineer is</h2>
@@ -54,7 +57,7 @@
         <p>Creative engineering is not a job title. It is a way of working: making
         deliberately, questioning the defaults, and staying answerable for the result.</p>
 
-        <h2>Why the School exists</h2>
+        <h2>Why the school exists</h2>
         <p>The instruments available to a maker have become extraordinarily powerful, and
         they arrived faster than the habits of mind required to use them well. It is now
         trivial to generate a great deal of competent-looking work. It is not trivial to know
@@ -62,17 +65,17 @@
         all.</p>
         <blockquote>The more powerful the instrument becomes, the more important the person
         using it becomes.</blockquote>
-        <p>The School exists to take that sentence seriously and to build the practice it
+        <p>The school exists to take that sentence seriously and to build the practice it
         implies — slowly, in public, through actual work.</p>
         <blockquote>The instrument has evolved. The responsibility to say something has
         not.</blockquote>
 
         <h2>Why it is being built publicly</h2>
-        <p>The School is being built in the open because that is the honest way to build it.
+        <p>The school is being built in the open because that is the honest way to build it.
         Its documents carry a status — note, working draft, experiment, prototype,
         established, archived — so you can see how settled the thinking is. Its Laboratory
         keeps the experiments that failed alongside the ones that worked.</p>
-        <p>The person building the School is not presenting themselves as a finished
+        <p>The person building the school is not presenting themselves as a finished
         authority. This is a working school, library, and laboratory, assembled through
         practice. If something here is wrong, it is meant to be found wrong and revised.</p>
 
@@ -81,6 +84,13 @@
         JavaScript, and content stored as Markdown files. There is no database, no login, and
         no dependency on any paid service or on any particular AI model. It is designed to
         keep working, and to stay easy to edit, for a long time.</p>
+
+        <h2>The First School and the Second School</h2>
+        <p>The school revises itself in the open too. Its first built form — <em>the First
+        School</em> — is preserved exactly as it was, and remains recoverable. What you are
+        reading now is the Second School: the same architecture, content and principles,
+        given a form that is more itself. The intention is not to make the school prettier,
+        but to make it more legible as an institution that is alive and accumulating.</p>
       </div>
     </div>
   </main>
@@ -97,10 +107,13 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
+      <p class="pulse" data-pulse><span>Wage Beauty School &middot; a living school for creative engineers</span></p>
     </div>
   </footer>
 
+  <script src="js/sigils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

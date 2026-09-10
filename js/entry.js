@@ -15,6 +15,9 @@
   var slug = params.get("id");
   var docSlug = params.get("doc");
   var cfg = wbs.COLLECTIONS[collection];
+  var sigil = window.wbsSigil || function () { return ""; };
+
+  function pad(n) { return (n < 10 ? "00" : n < 100 ? "0" : "") + n; }
 
   if (!cfg || !slug) {
     wbs.showError(root, "That document could not be found.");
@@ -22,7 +25,8 @@
   }
 
   wbs.loadAllIndexes().then(function (all) {
-    var entry = (all[collection] || []).filter(function (e) { return e.slug === slug; })[0];
+    var listForCol = all[collection] || [];
+    var entry = listForCol.filter(function (e) { return e.slug === slug; })[0];
     if (!entry) {
       wbs.showError(root, "That document is not in the " + cfg.label + " catalogue.");
       return;
@@ -46,8 +50,9 @@
     }
 
     setMeta(entry.title, entry.description);
+    var num = entry.number || pad(listForCol.indexOf(entry) + 1);
     return wbs.loadMarkdown(collection, entry.file).then(function (md) {
-      render(entry, md, all);
+      render(entry, md, all, num);
     });
   }).catch(function (err) {
     wbs.showError(root, err.message);
@@ -59,16 +64,18 @@
     if (mt && description) { mt.setAttribute("content", description); }
   }
 
-  function dl(entry) {
-    var rows = [];
-    if (entry.category) { rows.push(["Category", entry.category]); }
-    if (entry.type) { rows.push(["Type", entry.type]); }
-    if (entry.aspect) { rows.push(["Aspect", entry.aspect]); }
-    if (entry.status) { rows.push(["Status", entry.status]); }
-    if (entry.date) { rows.push(["Dated", wbs.formatDate(entry.date)]); }
-    return '<dl class="dl">' + rows.map(function (r) {
-      return '<dt>' + wbs.esc(r[0]) + '</dt><dd>' + wbs.esc(r[1]) + '</dd>';
-    }).join("") + '</dl>';
+  // a one-line catalogue record: NUMBER · TYPE · STATUS · INSTRUMENT · DATE
+  function record(entry) {
+    var parts = [];
+    if (entry.category) { parts.push(wbs.esc(entry.category)); }
+    if (entry.type) { parts.push(wbs.esc(entry.type)); }
+    if (entry.aspect) { parts.push(wbs.esc(entry.aspect)); }
+    if (entry.instrument) { parts.push("Instrument: " + wbs.esc(entry.instrument)); }
+    if (entry.date) { parts.push(wbs.esc(wbs.formatDate(entry.date))); }
+    return '<p class="entry-record">' +
+      (entry.status ? wbs.statusTag(entry.status) : "") +
+      (parts.length ? '<span>' + parts.join(" &nbsp;·&nbsp; ") + '</span>' : "") +
+      '</p>';
   }
 
   function linksLine(entry) {
@@ -130,19 +137,65 @@
       }).join("") + '</nav>';
   }
 
-  function render(entry, md, all) {
-    root.innerHTML =
-      '<a class="back-link" href="' + collection + '.html">Back to the ' +
-        wbs.esc(wbs.COLLECTIONS[collection].label) + '</a>' +
-      '<header class="entry-header">' +
-        '<p class="kicker">' + wbs.esc(wbs.COLLECTIONS[collection].label) + '</p>' +
-        '<h1>' + wbs.esc(entry.title) + '</h1>' +
-        (entry.description ? '<p class="lede">' + wbs.esc(entry.description) + '</p>' : '') +
-        dl(entry) + linksLine(entry) +
-      '</header>' +
-      '<div class="prose">' + wbs.renderMarkdown(md) + '</div>' +
-      docList(entry) +
-      relatedNav(entry.related, all);
+  // Practice asks the visitor to do. Fold the Reflection behind a reveal so it
+  // is sat with, not skimmed. Runs on the rendered prose.
+  function foldReflection(proseEl) {
+    var heads = proseEl.querySelectorAll("h2, h3");
+    for (var i = 0; i < heads.length; i++) {
+      if (!/^reflection\b/i.test(heads[i].textContent.trim())) { continue; }
+      var h = heads[i];
+      var wrap = document.createElement("div");
+      wrap.className = "reveal__body";
+      var moved = [];
+      var sib = h.nextElementSibling;
+      while (sib && !/^H[1-6]$/.test(sib.tagName)) {
+        moved.push(sib);
+        sib = sib.nextElementSibling;
+      }
+      moved.forEach(function (m) { wrap.appendChild(m); });
+
+      var details = document.createElement("details");
+      details.className = "reveal";
+      var summary = document.createElement("summary");
+      summary.textContent = "Reveal the reflection";
+      details.appendChild(summary);
+      details.appendChild(wrap);
+      h.replaceWith(details);
+      return;
+    }
+  }
+
+  function frame(kickerHtml, backHtml, headHtml, proseHtml, tailHtml) {
+    return backHtml +
+      '<div class="entry-layout"><div class="entry-main">' +
+      '<header class="entry-header">' + kickerHtml + headHtml + '</header>' +
+      '<div class="prose">' + proseHtml + '</div>' +
+      (tailHtml || "") +
+      '</div></div>';
+  }
+
+  function render(entry, md, all, num) {
+    var roomMark = collection.toUpperCase() + " " + num;
+    var kicker = '<p class="kicker">' + sigil(collection) +
+      '<span>' + wbs.esc(roomMark) + '</span></p>';
+    var head =
+      '<h1>' + wbs.esc(entry.title) + '</h1>' +
+      (entry.description ? '<p class="lede">' + wbs.esc(entry.description) + '</p>' : '') +
+      record(entry) + linksLine(entry);
+
+    root.innerHTML = frame(
+      kicker,
+      '<a class="back-link" href="' + collection + '.html">Back to ' +
+        wbs.esc(wbs.COLLECTIONS[collection].label) + '</a>',
+      head,
+      wbs.renderMarkdown(md),
+      docList(entry) + relatedNav(entry.related, all)
+    );
+
+    if (collection === "practice") {
+      var pr = root.querySelector(".prose");
+      if (pr) { foldReflection(pr); }
+    }
   }
 
   function renderDoc(entry, doc, md) {
@@ -150,16 +203,21 @@
       ? '<p class="meta-line entry-header__links"><a href="content/projects/' +
         wbs.esc(doc.source) + '" rel="noopener">Read the original, designed edition (PDF)</a></p>'
       : "";
-    root.innerHTML =
+    var kicker = '<p class="kicker">' + sigil("projects") + '<span>' +
+      wbs.esc(entry.title) + (doc.aspect ? " &nbsp;·&nbsp; " + wbs.esc(doc.aspect) : "") +
+      '</span></p>';
+    var head =
+      '<h1>' + wbs.esc(doc.title) + '</h1>' +
+      (doc.description ? '<p class="lede">' + wbs.esc(doc.description) + '</p>' : '') +
+      record(doc) + source;
+
+    root.innerHTML = frame(
+      kicker,
       '<a class="back-link" href="entry.html?c=projects&id=' + wbs.esc(entry.slug) +
-        '">Back to ' + wbs.esc(entry.title) + '</a>' +
-      '<header class="entry-header">' +
-        '<p class="kicker">' + wbs.esc(entry.title) +
-          (doc.aspect ? ' &nbsp;·&nbsp; ' + wbs.esc(doc.aspect) : '') + '</p>' +
-        '<h1>' + wbs.esc(doc.title) + '</h1>' +
-        (doc.description ? '<p class="lede">' + wbs.esc(doc.description) + '</p>' : '') +
-        dl(doc) + source +
-      '</header>' +
-      '<div class="prose">' + wbs.renderMarkdown(md) + '</div>';
+        '">Back to ' + wbs.esc(entry.title) + '</a>',
+      head,
+      wbs.renderMarkdown(md),
+      ""
+    );
   }
 })();

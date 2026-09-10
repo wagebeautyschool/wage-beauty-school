@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>Wage Beauty School</title>
   <meta name="description" content="A living school for creative engineers — concerned with critical thinking, media literacy, emotional resilience, storytelling, systems thinking, and the responsible use of powerful instruments.">
   <link rel="stylesheet" href="css/style.css">
@@ -14,15 +15,15 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="wordmark" href="index.html">Wage Beauty School</a>
+      <a class="wordmark" href="index.html"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="practice.html">Practice</a></li>
-          <li><a href="laboratory.html">Laboratory</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="library.html"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
+          <li><a href="practice.html"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
+          <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
+          <li><a href="about.html"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
         </ul>
       </nav>
     </div>
@@ -30,57 +31,71 @@
 
   <main id="main">
     <div class="wrap">
-      <section class="hero">
-        <p class="kicker">Wage Beauty School</p>
-        <h1>Make with intention.<span class="soft">Question the instrument.</span></h1>
-        <p class="lede">A living school for creative engineers.</p>
+      <section class="hall">
+        <p class="hall__id"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</p>
+
+        <h1 class="display">Make with intention.<span class="soft">Question the instrument.</span></h1>
+        <p class="hall__sub">A living school for creative engineers.</p>
+
+        <hr class="hall__pause">
+
+        <div class="hall__idea">
+          <div>
+            <h2>What a creative engineer is</h2>
+            <p>Someone who builds things that carry meaning, and stays answerable for
+            what those things say. They move between the workshop and the page.</p>
+            <a class="more" href="about.html">The full account &rarr;</a>
+          </div>
+          <div>
+            <h2>Why the school exists</h2>
+            <p>The instruments arrived faster than the habits of mind needed to use
+            them well. The school develops those habits, in the open, through practice.</p>
+            <a class="more" href="about.html">Read the principles &rarr;</a>
+          </div>
+        </div>
+
+        <p class="hall__creed">The instrument has evolved. The responsibility to say something has not.</p>
+
+        <p class="hall__enter">Enter the school</p>
+        <nav class="rooms" aria-label="The rooms of the school">
+          <a class="room" href="library.html">
+            <span class="room__sigil"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg></span>
+            <h3 class="room__name">Library</h3>
+            <p class="room__line">A living archive. Essays, field notes and working notes for long-form reading.</p>
+            <p class="room__count"><b data-count="library">&mdash;</b> texts</p>
+          </a>
+          <a class="room" href="practice.html">
+            <span class="room__sigil"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg></span>
+            <h3 class="room__name">Practice</h3>
+            <p class="room__line">Questions and exercises. The Library asks you to read; Practice asks you to do.</p>
+            <p class="room__count"><b data-count="practice">&mdash;</b> exercises</p>
+          </a>
+          <a class="room" href="laboratory.html">
+            <span class="room__sigil"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg></span>
+            <h3 class="room__name">Laboratory</h3>
+            <p class="room__line">An archive of experiments, including the ones that broke. Failure is knowledge.</p>
+            <p class="room__count"><b data-count="laboratory">&mdash;</b> experiments</p>
+          </a>
+          <a class="room" href="projects.html">
+            <span class="room__sigil"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg></span>
+            <h3 class="room__name">Projects</h3>
+            <p class="room__line">Longer work produced by the school, each with a sense of provenance.</p>
+            <p class="room__count"><b data-count="projects">&mdash;</b> projects</p>
+          </a>
+          <a class="room" href="about.html">
+            <span class="room__sigil"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg></span>
+            <h3 class="room__name">About</h3>
+            <p class="room__line">What this is, who it is for, and why it is being built in public.</p>
+            <p class="room__count">The statement of principles</p>
+          </a>
+        </nav>
+
+        <div class="hall__depth">
+          <span data-recent>Most recent entry &nbsp;<b data-recent-title>&mdash;</b> <span data-recent-where></span></span>
+          <span>Currently in the laboratory &nbsp;<b><span data-lab-active>&mdash;</span> active</b></span>
+          <span><a href="about.html">The story so far &rarr;</a></span>
+        </div>
       </section>
-
-      <div class="home-grid">
-        <div class="home-block">
-          <h2>What a creative engineer is</h2>
-          <p>A creative engineer is someone who builds things that carry meaning, and who
-          takes responsibility for what those things say. They move between the workshop and
-          the page: they can wire a system together, and they can tell you why it should
-          exist. They treat their tools — including artificial intelligence — as instruments
-          to be understood, not authorities to be obeyed.</p>
-        </div>
-        <div class="home-block">
-          <h2>Why the School exists</h2>
-          <p>The instruments available to a maker have become extraordinarily powerful, and
-          they arrived faster than the habits of mind needed to use them well. Wage Beauty
-          School is being built to develop those habits in the open: critical thinking, media
-          literacy, emotional resilience, storytelling, communication, systems thinking, and
-          a working knowledge of the machines themselves.</p>
-        </div>
-      </div>
-
-      <p class="lede pull">
-        The instrument has evolved. The responsibility to say something has not.
-      </p>
-
-      <nav class="nav-cards" aria-label="Sections of the School">
-        <a class="nav-card" href="library.html">
-          <h3>Library</h3>
-          <p>Documents, essays, and working notes for long-form reading.</p>
-        </a>
-        <a class="nav-card" href="practice.html">
-          <h3>Practice</h3>
-          <p>Questions and exercises. The School is not a course.</p>
-        </a>
-        <a class="nav-card" href="laboratory.html">
-          <h3>Laboratory</h3>
-          <p>An archive of experiments, including the ones that failed.</p>
-        </a>
-        <a class="nav-card" href="projects.html">
-          <h3>Projects</h3>
-          <p>Longer work the School is building or has built.</p>
-        </a>
-        <a class="nav-card" href="about.html">
-          <h3>About</h3>
-          <p>What this is, who it is for, and why it is being built publicly.</p>
-        </a>
-      </nav>
     </div>
   </main>
 
@@ -96,10 +111,13 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
+      <p class="pulse" data-pulse><span>Wage Beauty School &middot; a living school for creative engineers</span></p>
     </div>
   </footer>
 
+  <script src="js/sigils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

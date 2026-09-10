@@ -45,11 +45,13 @@ wage-beauty-school/
 ├── .nojekyll             Tells GitHub Pages to serve files as-is
 │
 ├── css/
-│   └── style.css         The entire design system, one file, commented by section
+│   └── style.css         The whole design system, one file, commented by section
 │
 ├── js/
-│   ├── main.js           Shared: mobile menu toggle, footer year
+│   ├── sigils.js         Injects the SVG sigil sprite; exposes window.wbsSigil
+│   ├── main.js           The compact mobile menu
 │   ├── data.js           Content loader + shared render helpers (window.wbs)
+│   ├── pulse.js          Live counts, from the manifests — nothing invented
 │   ├── collection.js     Renders an index listing (Library / Practice / Laboratory)
 │   ├── entry.js          Renders a single entry from its Markdown file
 │   └── projects.js       Renders the Projects archive inline
@@ -232,18 +234,36 @@ To use a custom domain, add a file named `CNAME` containing just the domain
 
 ---
 
-## Design notes
+## Design notes — the Second School
 
-The look is meant to read as *independent school / public library / research
-notebook / publishing house / unfinished institution* — restrained, editorial,
-strong on typography and spacing. Body text is set in a system serif for
-comfortable long-form reading; labels, metadata, and status tags use a monospace
-face, like a library catalogue. One accent colour (oxblood). Light and dark
-themes both ship, following the reader's system setting. Animation is avoided;
-nothing meaningful is communicated by motion alone.
+The site is on its second built form. The first — *the First School*, warm paper
+and oxblood — is preserved on the `first-school` git tag and stays recoverable.
+The Second School keeps the same architecture, content and principles and gives
+them a form meant to read as *library + laboratory + workshop + field journal +
+occult diagram + modern interface*.
 
-All of it lives in `css/style.css`, grouped and commented by section. The colour
-palette is defined once as custom properties at the top of that file.
+- **Colour** — an ink-black ground and one purple. Dark is the school's own
+  light; a daylight-archive variant follows `prefers-color-scheme`. The whole
+  palette is custom properties at the top of `css/style.css`.
+- **Three voices** — DISPLAY and BODY are the same system serif at different
+  scale and weight; METADATA is monospace, uppercase, letter-spaced — catalogue
+  numbers, dates, states, instruments, marginalia.
+- **Sigils** — five geometric room marks plus a recurring *instrument* mark,
+  defined once in `js/sigils.js` and referenced as
+  `<svg class="sigil"><use href="#s-library"></use></svg>`. No JS: the words
+  still carry every label.
+- **Catalogue numbers** — each entry's number is its position in `index.json`
+  (accession order), so appending a new entry never renumbers the old ones. An
+  explicit `"number"` in the manifest overrides it.
+- **Marginalia** — every entry opens with a one-line record
+  (`NUMBER · TYPE · STATUS · INSTRUMENT · DATE`). Optional manifest fields
+  `instrument` and (on projects) `instruments` surface here and in search.
+- **Living signs** — `js/pulse.js` counts the manifests to fill room counts, a
+  footer census, the most-recent entry and the active-experiment tally. Every
+  number is derived from real content.
+- **Interaction** — hover lifts and a sliding 2px purple edge on rooms and
+  cards; a `<details class="reveal">` folds each Practice reflection until asked
+  for. All motion respects `prefers-reduced-motion`.
 
 ## Accessibility
 

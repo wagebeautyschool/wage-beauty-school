@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>Practice — Wage Beauty School</title>
-  <meta name="description" content="Practice at Wage Beauty School is built around questions and exercises rather than lectures: observe the instrument, question the default, build badly, work with and without AI.">
+  <meta name="description" content="Practice at Wage Beauty School is built around questions and exercises rather than lectures. The Library asks you to read; Practice asks you to do.">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
@@ -14,15 +15,15 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="wordmark" href="index.html">Wage Beauty School</a>
+      <a class="wordmark" href="index.html"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="practice.html" aria-current="page">Practice</a></li>
-          <li><a href="laboratory.html">Laboratory</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="library.html"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
+          <li><a href="practice.html" aria-current="page"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
+          <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
+          <li><a href="about.html"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
         </ul>
       </nav>
     </div>
@@ -31,10 +32,16 @@
   <main id="main">
     <div class="wrap">
       <div class="page-head">
-        <p class="kicker">Wage Beauty School</p>
+        <p class="room-tab"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg><span>Practice &nbsp;·&nbsp; participation</span></p>
         <h1>Practice</h1>
-        <p class="lede">The School is not primarily a course. Practice is a set of questions
-        and exercises — each with a little context, something to do, and something to reflect on.</p>
+        <p class="lede">The school is not primarily a course. Practice is a set of questions
+        and exercises — each with a little context, something to do, and something to sit with.</p>
+      </div>
+
+      <div class="archive-intro">
+        <p>The Library asks you to read. Practice asks you to <em>do</em>. Each exercise
+        opens with a question and gives you an action; the reflection at the end is folded
+        away until you choose to see it, so that it is arrived at rather than skimmed.</p>
       </div>
 
       <noscript>
@@ -58,12 +65,14 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
+      <p class="pulse" data-pulse><span>Wage Beauty School &middot; a living school for creative engineers</span></p>
     </div>
   </footer>
 
+  <script src="js/sigils.js"></script>
   <script src="js/data.js"></script>
   <script src="js/collection.js"></script>
+  <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

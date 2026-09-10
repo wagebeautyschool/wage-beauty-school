@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>Wage Beauty School</title>
   <meta name="description" content="A document from Wage Beauty School.">
   <link rel="stylesheet" href="css/style.css">
@@ -14,15 +15,15 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="wordmark" href="index.html">Wage Beauty School</a>
+      <a class="wordmark" href="index.html"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="practice.html">Practice</a></li>
-          <li><a href="laboratory.html">Laboratory</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="library.html"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
+          <li><a href="practice.html"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
+          <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
+          <li><a href="about.html"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
         </ul>
       </nav>
     </div>
@@ -52,13 +53,15 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
+      <p class="pulse" data-pulse><span>Wage Beauty School &middot; a living school for creative engineers</span></p>
     </div>
   </footer>
 
+  <script src="js/sigils.js"></script>
   <script src="vendor/marked.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/entry.js"></script>
+  <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

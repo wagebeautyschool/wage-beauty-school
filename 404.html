@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>Not found — Wage Beauty School</title>
   <meta name="description" content="That page could not be found.">
   <style>
     /* 404 is deliberately self-contained: no external CSS or JS dependency, so
        it renders correctly no matter what path GitHub Pages serves it from. */
     :root {
-      --paper: #f7f4ec; --ink: #1c1b18; --ink-soft: #55524a;
-      --rule: #dcd6c5; --accent: #8a3324;
+      --paper: #0c0b10; --ink: #e9e7f0; --ink-soft: #a6a2b6;
+      --rule: #262232; --accent: #b79cff;
+      color-scheme: dark light;
     }
-    @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: light) {
       :root {
-        --paper: #15140f; --ink: #e9e4d5; --ink-soft: #ada695;
-        --rule: #322e24; --accent: #dc8b70;
+        --paper: #faf9fd; --ink: #16131f; --ink-soft: #4c475c;
+        --rule: #e2ddf0; --accent: #6d3bd4;
       }
     }
     * { box-sizing: border-box; }
@@ -38,7 +40,7 @@
       font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--ink-soft); margin: 0 0 1.4rem;
     }
-    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 1rem; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.015em; }
     p { color: var(--ink-soft); max-width: 36ch; }
     a { color: var(--accent); }
     footer {
@@ -53,7 +55,7 @@
   <main>
     <p class="kicker">Error 404</p>
     <h1>That page is not in the catalogue.</h1>
-    <p>The School is still being built, so some doors lead nowhere yet.
+    <p>The school is still being built, so some doors lead nowhere yet.
     Try the <a href="/library.html" data-root="library.html">Library</a> or return
     <a href="/" data-root="">home</a>.</p>
   </main>

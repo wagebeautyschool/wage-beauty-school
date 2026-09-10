@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b10">
   <title>Library — Wage Beauty School</title>
-  <meta name="description" content="The digital library of Wage Beauty School: essays, documents, and working notes on emotional resilience, media literacy, critical thinking, creative engineering, and more.">
+  <meta name="description" content="The digital library of Wage Beauty School: a living archive of essays, textbooks and working notes on emotional resilience, media literacy, critical thinking, creative engineering, and more.">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.replace("no-js", "js");</script>
 </head>
@@ -14,15 +15,15 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="wordmark" href="index.html">Wage Beauty School</a>
+      <a class="wordmark" href="index.html"><svg class="sigil" aria-hidden="true"><use href="#s-instrument"></use></svg>Wage Beauty School</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="library.html" aria-current="page">Library</a></li>
-          <li><a href="practice.html">Practice</a></li>
-          <li><a href="laboratory.html">Laboratory</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="library.html" aria-current="page"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg>Library</a></li>
+          <li><a href="practice.html"><svg class="sigil" aria-hidden="true"><use href="#s-practice"></use></svg>Practice</a></li>
+          <li><a href="laboratory.html"><svg class="sigil" aria-hidden="true"><use href="#s-laboratory"></use></svg>Laboratory</a></li>
+          <li><a href="projects.html"><svg class="sigil" aria-hidden="true"><use href="#s-projects"></use></svg>Projects</a></li>
+          <li><a href="about.html"><svg class="sigil" aria-hidden="true"><use href="#s-about"></use></svg>About</a></li>
         </ul>
       </nav>
     </div>
@@ -31,16 +32,16 @@
   <main id="main">
     <div class="wrap">
       <div class="page-head">
-        <p class="kicker">Wage Beauty School</p>
+        <p class="room-tab"><svg class="sigil" aria-hidden="true"><use href="#s-library"></use></svg><span>Library &nbsp;·&nbsp; the archive</span></p>
         <h1>Library</h1>
         <p class="lede">A working library for creative engineers — the beginning of a
-        curriculum.</p>
+        curriculum, accumulating in the open.</p>
       </div>
 
-      <div class="library-intro prose">
+      <div class="archive-intro">
         <p>The Library is a collection of textbooks, frameworks, exercises and ideas
         developed to cultivate media literacy, critical analysis, emotional resilience and
-        creative engineering. The School is interested in people who can engage with the
+        creative engineering. The school is interested in people who can engage with the
         tools of a rapidly changing world without becoming passive consumers of them.
         Artificial intelligence is part of the curriculum, but it is not the curriculum
         itself. The central question is not <em>“How do I use AI?”</em> — it is
@@ -49,13 +50,13 @@
 
         <p>The material is designed not simply to be read, but to be used. A textbook can
         provide language; a framework can provide structure; <a href="practice.html">practice</a>
-        is what turns either into understanding. Each entry carries a category and a status
-        that says how settled the thinking is. The Library is intentionally unfinished — it
-        is being built alongside the School itself.</p>
+        is what turns either into understanding. Each entry carries a number, a category and
+        a status that says how settled the thinking is. The Library is intentionally
+        unfinished — it is being built alongside the school itself.</p>
       </div>
 
       <noscript>
-        <p class="muted">The Library index needs JavaScript to search and filter.
+        <p class="muted">The archive index needs JavaScript to search and filter.
         You can still browse the raw documents in
         <a href="content/library/">content/library/</a>.</p>
       </noscript>
@@ -76,12 +77,14 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      <p class="meta-line">Wage Beauty School · A living school for creative engineers · <span data-year>2026</span></p>
+      <p class="pulse" data-pulse><span>Wage Beauty School &middot; a living school for creative engineers</span></p>
     </div>
   </footer>
 
+  <script src="js/sigils.js"></script>
   <script src="js/data.js"></script>
   <script src="js/collection.js"></script>
+  <script src="js/pulse.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

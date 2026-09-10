@@ -1,7 +1,10 @@
-/* Renders an index listing for a collection (Library / Practice / Laboratory).
+/* Renders an index listing for a room (Library / Practice / Laboratory).
    Markup needed on the page:
      <div id="listing" data-collection="library" data-search="true"></div>
-   data-search="true" adds the search box and category filter (used by the Library). */
+   data-search="true" adds the search box + category filter (used by the Library).
+
+   Each entry gets a catalogue number from its position in index.json — the
+   accession order. Adding a new entry at the end keeps every existing number. */
 (function () {
   "use strict";
 
@@ -10,10 +13,17 @@
 
   var collection = root.getAttribute("data-collection");
   var withSearch = root.getAttribute("data-search") === "true";
+  var roomMark = (collection || "").toUpperCase();
   var state = { q: "", category: "All", entries: [] };
 
+  function pad(n) { return (n < 10 ? "00" : n < 100 ? "0" : "") + n; }
+
   wbs.loadIndex(collection).then(function (entries) {
-    state.entries = entries.slice().sort(function (a, b) {
+    state.entries = entries.map(function (e, i) {
+      var copy = Object.create(e);
+      copy._n = i + 1;                 // catalogue number = accession order
+      return copy;
+    }).sort(function (a, b) {
       return (b.date || "").localeCompare(a.date || "");
     });
     build();
@@ -37,7 +47,7 @@
       var field = document.createElement("div");
       field.className = "search-field";
       field.innerHTML =
-        '<label for="q">Search the Library</label>' +
+        '<label for="q">Search the archive</label>' +
         '<input type="search" id="q" autocomplete="off" ' +
         'placeholder="Title, description, category…">';
       filters.appendChild(field);
@@ -91,7 +101,7 @@
   function matches(e) {
     if (state.category !== "All" && e.category !== state.category) { return false; }
     if (!state.q) { return true; }
-    var hay = [e.title, e.description, e.category, e.type, e.status]
+    var hay = [e.title, e.description, e.category, e.type, e.status, e.instrument]
       .join(" ").toLowerCase();
     return hay.indexOf(state.q) !== -1;
   }
@@ -110,19 +120,22 @@
     }
 
     list.innerHTML = shown.map(function (e) {
+      var num = e.number || pad(e._n);
       var meta = [];
       if (e.category) { meta.push(wbs.esc(e.category)); }
       if (e.type) { meta.push(wbs.esc(e.type)); }
+      if (e.instrument) { meta.push("Instrument: " + wbs.esc(e.instrument)); }
       if (e.date) { meta.push(wbs.esc(wbs.formatDate(e.date))); }
       return '' +
         '<li class="entry-card">' +
         '<a class="entry-card__link" href="' + wbs.esc(wbs.entryHref(collection, e.slug)) + '">' +
+        '<span class="entry-card__num"><b>' + wbs.esc(roomMark) + ' ' + wbs.esc(num) + '</b></span>' +
         '<h2 class="entry-card__title">' + wbs.esc(e.title) + '</h2>' +
+        (e.description ? '<p class="entry-card__desc">' + wbs.esc(e.description) + '</p>' : '') +
         '<div class="entry-card__meta">' +
         wbs.statusTag(e.status) +
         (meta.length ? '<span>' + meta.join(" &nbsp;·&nbsp; ") + '</span>' : '') +
         '</div>' +
-        (e.description ? '<p class="entry-card__desc">' + wbs.esc(e.description) + '</p>' : '') +
         '</a>' +
         '</li>';
     }).join("");
