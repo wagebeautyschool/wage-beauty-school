@@ -30,6 +30,36 @@
           "status": "Established",
           "date": "2026-07-14",
           "description": "First Manual for the Newly Awakened. An instruction manual for a way of paying attention: the two Eyes, the Five Principles, a working compendium of techniques, and a thirty-day initiation."
+        },
+        {
+          "slug": "a-red-book-and-a-red-cappuccino",
+          "title": "A Red Book, and a Red Cappuccino",
+          "aspect": "Living Story",
+          "file": "shorigan/story/a-red-book-and-a-red-cappuccino.md",
+          "source": "shorigan/story/sources/a-red-book-and-a-red-cappuccino.pdf",
+          "status": "Working Draft",
+          "date": "2026-07-20",
+          "description": "A standalone novella of the Shorigan cycle. Alexander asks Isor for permission to meet Anansi, and learns what a story costs when it is not offered for free."
+        },
+        {
+          "slug": "away-from-home-chapter-one",
+          "title": "Away From Home — Chapter One",
+          "aspect": "Living Story",
+          "file": "shorigan/story/away-from-home-chapter-one.md",
+          "source": "shorigan/story/sources/away-from-home-chapter-one.pdf",
+          "status": "Working Draft",
+          "date": "2026-07-15",
+          "description": "A parallel chronicle of the Shorigan cycle. \"The Names We Keep From Ourselves\" — Anna Bell has built her life around never letting anyone speak her true name."
+        },
+        {
+          "slug": "away-from-home-the-first-verse",
+          "title": "Away From Home — The First Verse",
+          "aspect": "Living Story",
+          "file": "shorigan/story/away-from-home-the-first-verse.md",
+          "source": "shorigan/story/sources/away-from-home-the-first-verse.pdf",
+          "status": "Working Draft",
+          "date": "2026-07-15",
+          "description": "A later anchor chapter of Away From Home. In a room that exists nowhere, Anna Bell finds Alexander coming quietly apart — and reckons with the part of it that is her own fault."
         }
       ],
       "related": ["projects/song-of-the-fallen", "library/how-to-play-chess-with-yourself", "practice/reconstruct-a-creative-process"]

@@ -474,9 +474,14 @@ main { display: block; padding: 3.5rem 0 5rem; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  margin: 1.6rem 0 0.6rem;
+  margin: 0 0 0.4rem;
 }
-.doc-list h2:first-child { margin-top: 0; }
+.doc-list h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin: 1.8rem 0 0.4rem;
+}
 .doc-list ul { list-style: none; margin: 0; padding: 0; }
 .doc-list li { border-top: 1px solid var(--rule); }
 .doc-list li:last-child { border-bottom: 1px solid var(--rule); }

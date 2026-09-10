@@ -19,9 +19,11 @@ Shorigan is built in two halves that feed each other.
   acceptance, expression and uncertainty. They are not presented as commandments.
   They are instruments for examination. The tomes below are the current written
   form of this half.
-- **Living Story** — the narrative work set in Shorigan, where those principles
-  are first lived rather than argued. [Song of the Fallen](entry.html?c=projects&id=song-of-the-fallen)
-  is the first published piece of it.
+- **Living Story** — the fictional work itself: scenes, extracts, characters and
+  developing sections of a larger narrative still being built, where those
+  principles are first lived rather than argued.
+  [Song of the Fallen](entry.html?c=projects&id=song-of-the-fallen) is the
+  interactive piece of it.
 
 ## Living Philosophy
 
@@ -49,3 +51,32 @@ does not can be changed.
 
 Both are written in the voice and imagery of the Shorigan world; both translate
 directly into ordinary practice. Each also links to its original, designed PDF.
+
+## Living Story
+
+Shorigan is also a story. The intention is for it to eventually become an
+Afro-manga — the visual language of manga with African settings, influences,
+characters and mythology. It is currently in development, so the material here
+should be understood as fragments of a living world rather than a finished
+manuscript.
+
+That unfinished quality is important. The world is being discovered while it is
+being constructed. Characters change. Systems become clearer. Ideas that begin as
+philosophy acquire consequences when characters have to live with them.
+
+This is where Shorigan's two identities meet most directly. The philosophy asks:
+*what does this idea mean?* The story asks: *what happens when someone has to live
+by it?* A philosophy can claim that discipline is valuable; a story can place a
+character in a situation where discipline costs them something. A philosophy can
+speak about conviction; a story can ask what happens when conviction is wrong. A
+philosophy can explore uncertainty; a story can force someone to act without
+knowing. The narrative is therefore more than an illustration of the philosophy —
+it is one of the ways the philosophy is tested.
+
+The extracts below represent different stages and areas of that development. Some
+may change substantially. Some may disappear. Others may become foundations for
+the larger work. The goal is not simply to build a fictional universe, but a
+world capable of generating stories, characters, conflicts and questions that
+could not exist in the same way outside it — living in the space between two
+questions: *what if imagination could become a laboratory for reality? And what
+if reality could become part of the story?*

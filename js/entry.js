@@ -118,8 +118,9 @@
       byAspect[a].push(d);
     });
     return '<nav class="doc-list" aria-label="' + wbs.esc(entry.title) + ' documents">' +
+      '<h2>Documents</h2>' +
       order.map(function (a) {
-        return '<h2>' + wbs.esc(a) + '</h2><ul>' + byAspect[a].map(function (d) {
+        return '<h3>' + wbs.esc(a) + '</h3><ul>' + byAspect[a].map(function (d) {
           return '<li><a class="doc-list__link" href="entry.html?c=projects&id=' +
             wbs.esc(entry.slug) + '&doc=' + wbs.esc(d.slug) + '">' +
             '<span class="doc-list__title">' + wbs.esc(d.title) + '</span>' +

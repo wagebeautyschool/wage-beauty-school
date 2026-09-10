@@ -170,9 +170,10 @@ The project page then shows them grouped by `aspect`, and each links to
 `entry.html?c=projects&id=<project>&doc=<doc-slug>` — a full reading page
 rendered from `file` (a path under `content/projects/`), with `source` (a PDF
 under the same tree) offered as "the original, designed edition". `Shorigan` is
-built this way: `shorigan.md` is the overview, `shorigan/the-first-tome.md` and
-`shorigan/the-eye-of-integration.md` are its Living Philosophy documents, and
-`shorigan/sources/` holds the source PDFs and the philosophy README.
+built this way: `shorigan.md` is the overview; its `Living Philosophy` documents
+live in `shorigan/` (the two tomes) and its `Living Story` documents in
+`shorigan/story/` (the fiction extracts); each folder has a `sources/` holding
+the original PDFs and that section's README.
 
 ---
 
