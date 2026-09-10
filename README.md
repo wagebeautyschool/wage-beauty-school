@@ -70,7 +70,10 @@ wage-beauty-school/
     │   └── *.md
     └── projects/
         ├── index.json        Manifest: one block per project
-        └── *.md              Optional — a project's own page (e.g. a dev log)
+        ├── *.md              Optional — a project's own page (e.g. a dev log)
+        └── <project>/        Optional — a project's documents + their sources
+            ├── *.md
+            └── sources/
 ```
 
 The page header and footer are copied into each HTML file by hand. That is the
@@ -155,12 +158,21 @@ Add a block to `content/projects/index.json`:
 (a playable build, a repository, a write-up).
 
 **Projects can also have their own page.** Add `"file": "my-project.md"` and
-create `content/projects/my-project.md` — the project's title and a "Development
-log & notes" link then point to a full page rendered from that Markdown, good
-for a running development log. Without `file`, the project stays as a single
-record on the Projects index. See `song-of-the-fallen.md` for the shape: a
-standfirst, an **About** section, a **Status** section, then a **Development
-log** with dated entries, newest first.
+create `content/projects/my-project.md` — the project's title then links to a
+full page rendered from that Markdown. Set `"pageLabel"` for the link text
+(e.g. `"Development log & notes"`). Without `file`, the project stays as a
+single record on the Projects index. See `song-of-the-fallen.md` for a simple
+shape (About / Status / Development log, newest entries first).
+
+**A project can also carry a set of documents.** Add a `"documents"` array;
+each entry is `{ slug, title, aspect, file, source, status, date, description }`.
+The project page then shows them grouped by `aspect`, and each links to
+`entry.html?c=projects&id=<project>&doc=<doc-slug>` — a full reading page
+rendered from `file` (a path under `content/projects/`), with `source` (a PDF
+under the same tree) offered as "the original, designed edition". `Shorigan` is
+built this way: `shorigan.md` is the overview, `shorigan/the-first-tome.md` and
+`shorigan/the-eye-of-integration.md` are its Living Philosophy documents, and
+`shorigan/sources/` holds the source PDFs and the philosophy README.
 
 ---
 

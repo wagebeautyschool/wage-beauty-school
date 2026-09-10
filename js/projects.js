@@ -42,7 +42,8 @@
         (p.description ? '<p class="entry-card__desc">' + wbs.esc(p.description) + '</p>' : '') +
         (links.length ? '<p class="meta-line">' + links.join(" &nbsp;·&nbsp; ") + '</p>' : '') +
         (p.file ? '<p class="meta-line"><a href="' +
-          wbs.esc(wbs.entryHref("projects", p.slug, p)) + '">Development log &amp; notes →</a></p>' : '') +
+          wbs.esc(wbs.entryHref("projects", p.slug, p)) + '">' +
+          wbs.esc(p.pageLabel || "Open the project page") + ' →</a></p>' : '') +
         (related.length ? '<p class="meta-line">Related: ' + related.join(" &nbsp;·&nbsp; ") + '</p>' : '') +
         '</li>';
     }).join("") + '</ul>';

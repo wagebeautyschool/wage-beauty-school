@@ -6,9 +6,33 @@
       "title": "Shorigan",
       "type": "Ongoing work",
       "status": "In Progress",
-      "description": "A long-form world and the practice of building it deliberately — the setting in which much of the School's thinking about storytelling, systems, and meaning gets tested against something real.",
+      "description": "A philosophy developed through story and tested against reality. Shorigan has two aspects — a Living Philosophy and a Living Story — each feeding the other.",
+      "file": "shorigan.md",
+      "pageLabel": "The philosophy, and both tomes",
       "links": [],
-      "related": ["library/how-to-play-chess-with-yourself", "practice/reconstruct-a-creative-process"]
+      "documents": [
+        {
+          "slug": "the-first-tome",
+          "title": "Shorigan — The First Tome",
+          "aspect": "Living Philosophy",
+          "file": "shorigan/the-first-tome.md",
+          "source": "shorigan/sources/shorigan-the-first-tome.pdf",
+          "status": "Established",
+          "date": "2026-09-10",
+          "description": "Living the Surreal Dream. Fifteen chapters on the three Eyes, Living Honour and Legacy, Fear as a friend, the philosophy of action, and the Living Bones a life is built from."
+        },
+        {
+          "slug": "the-eye-of-integration",
+          "title": "The Shorigan — The Eye of Integration",
+          "aspect": "Living Philosophy",
+          "file": "shorigan/the-eye-of-integration.md",
+          "source": "shorigan/sources/shorigan-the-eye-of-integration.pdf",
+          "status": "Established",
+          "date": "2026-07-14",
+          "description": "First Manual for the Newly Awakened. An instruction manual for a way of paying attention: the two Eyes, the Five Principles, a working compendium of techniques, and a thirty-day initiation."
+        }
+      ],
+      "related": ["projects/song-of-the-fallen", "library/how-to-play-chess-with-yourself", "practice/reconstruct-a-creative-process"]
     },
     {
       "slug": "infinite-story-engine",
@@ -35,6 +59,7 @@
       "status": "Hiatus",
       "description": "A piece of narrative work connected to Shorigan, written and published as interactive fiction. Currently on hiatus — more words are coming. Its process — the drafts, the cuts, the forks — is recorded in the development log.",
       "file": "song-of-the-fallen.md",
+      "pageLabel": "Development log & notes",
       "links": [
         { "label": "Read it on cogdemos.ink", "url": "https://cogdemos.ink/play/left4bed/song-of-the-fallen/mygame" }
       ],
